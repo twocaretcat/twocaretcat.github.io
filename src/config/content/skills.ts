@@ -70,6 +70,8 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'NumPy',
 		'Oracle DB',
 		'Puppeteer',
+		'Selenium',
+		'Vitepress',
 	],
 	[SkillType.Tools]: [
 		// Common
@@ -79,8 +81,12 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'Linux',
 		// Uncommon
 		'Blender',
+		'Continue',
 		'GIMP',
+		'GitHub Actions',
+		'GitHub Copilot',
 		'Inkscape',
+		'OpenStack',
 		'Postman',
 		'Slack',
 		'Visual Studio Code',
