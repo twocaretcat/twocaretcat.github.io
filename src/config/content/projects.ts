@@ -27,7 +27,7 @@ export const PROJECTS_CONFIG: ProjectsConfig = {
 				applicationCategory: SchemaApplicationCategory.Educational,
 				operatingSystem: 'Any',
 			},
-			languages: ['CSS', 'JavaScript', 'Python'],
+			languages: ['CSS', 'JavaScript', 'Python', 'SQL'],
 			technologies: ['React', 'Django', 'Next.js', 'OpenStack'],
 			tools: ['VS Code'],
 			topics: ['Agile'],
