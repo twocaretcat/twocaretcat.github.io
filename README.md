@@ -8,10 +8,10 @@
 
   <p class="projectBadges">
     <img src="https://johng.io/badges/category/Website.svg" alt="Project category" title="Project category">
-    <img src="https://img.shields.io/github/languages/top/jerboa88/jerboa88.github.io.svg" alt="Language" title="Language">
-    <img src="https://img.shields.io/github/repo-size/jerboa88/jerboa88.github.io.svg" alt="Repository size" title="Repository size">
+    <img src="https://img.shields.io/github/languages/top/twocaretcat/twocaretcat.github.io.svg" alt="Language" title="Language">
+    <img src="https://img.shields.io/github/repo-size/twocaretcat/twocaretcat.github.io.svg" alt="Repository size" title="Repository size">
     <a href="LICENSE">
-      <img src="https://img.shields.io/github/license/jerboa88/jerboa88.github.io.svg" alt="Project license" title="Project license"/>
+      <img src="https://img.shields.io/github/license/twocaretcat/twocaretcat.github.io.svg" alt="Project license" title="Project license"/>
     </a>
     <a href="https://johng.io" title="Project URL">
 			<img src="https://img.shields.io/website?url=https%3A%2F%2Fjohng.io&up_message=johng.io%20%E2%86%97" alt="Project URL" title="Project URL">
@@ -46,8 +46,8 @@ The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for typ
 - A [GitHub personal access token] (PAT) that can be used to access the GitHub API. This token should have public (read-only) access to all repositories as it is used to fetch repository data for the projects section.
 
 ### Installation
-1. Clone the repo with `https://github.com/jerboa88/jerboa88.github.io.git`. Alternatively, you can download the repository as a zip file and extract it.
-2. Enter the project root with `cd jerboa88.github.io`.
+1. Clone the repo with `https://github.com/twocaretcat/twocaretcat.github.io.git`. Alternatively, you can download the repository as a zip file and extract it.
+2. Enter the project root with `cd twocaretcat.github.io`.
 3. Use `bun install` to install the app and all of its dependencies.
 4. Configure required environment variables and constants:
    1. The `GH_TOKEN` environment variable must be set to your GitHub PAT in order to fetch repository data, otherwise the build will fail. An easy way to do this is to create an `.env.development` or `.env.production` file in the project root like so:
@@ -56,7 +56,7 @@ The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for typ
 		GH_TOKEN=your_github_pat_here
 		```
 
-   2. The site is configured to fetch repository data from the `jerboa88` GitHub account by default. If you want to fetch data for a different user, replace the `username.github` value with your own username in [src/config/metadata/site.ts].
+   2. The site is configured to fetch repository data from the `twocaretcat` GitHub account by default. If you want to fetch data for a different user, replace the `username.github` value with your own username in [src/config/metadata/site.ts].
 5. Use `bun develop` to start the development server or `bun run build` to build the site for production.
 
 
@@ -145,7 +145,7 @@ This project is licensed under the MIT License. See [LICENSE] for details. This 
 
 
 ## 🖇️ Related
-- **[jerboa88](https://github.com/jerboa88)**: My GitHub profile README
+- **[twocaretcat](https://github.com/twocaretcat/twocaretcat)**: My GitHub profile README
 - **[Gatsby Plugin: Component to Image][gatsby-plugin-component-to-image]**: A Gatsby plugin to generate images and PDFs from React components. Useful for dynamically generating Open Graph images, favicons, and more!
 
 
@@ -169,7 +169,7 @@ I appreciate the support!
 [daisyUI]: https://daisyui.com/
 [Formspark]: https://www.formspark.io/
 [Gatsby CLI docs]: https://www.gatsbyjs.com/docs/reference/gatsby-cli/
-[gatsby-plugin-component-to-image]: https://github.com/jerboa88/gatsby-plugin-component-to-image
+[gatsby-plugin-component-to-image]: https://github.com/twocaretcat/gatsby-plugin-component-to-image
 [gatsby-source-filesystem]: https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/
 [gatsby-transformer-remark]: https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/
 [Gatsby]: https://www.gatsbyjs.com/

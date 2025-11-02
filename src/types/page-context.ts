@@ -14,7 +14,7 @@ import type { EmptyObject } from './utils.ts';
 type PageContext<T extends object = EmptyObject> = PageMetadataProp & T;
 
 /**
- * Base page context type for social images pages that can be extended with additional properties. Image metadata is automatically added to pages of this type by {@link https://github.com/jerboa88/gatsby-plugin-component-to-image | gatsby-plugin-component-to-image}
+ * Base page context type for social images pages that can be extended with additional properties. Image metadata is automatically added to pages of this type by {@link https://github.com/twocaretcat/gatsby-plugin-component-to-image | gatsby-plugin-component-to-image}
  *
  * @typeParam T - Additional context properties
  */
