@@ -21,7 +21,7 @@ export const SITE_METADATA_CONFIG: SiteMetadataConfig = {
 		username: {
 			linkedin: 'johngoodliff',
 			github: 'twocaretcat',
-			x: 'jerboa88',
+			x: 'twocaretcat',
 			patreon: 'twocaretcat',
 			braveCreators: 'johng',
 		},
