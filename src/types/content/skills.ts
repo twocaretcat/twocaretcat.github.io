@@ -46,6 +46,7 @@ export type TechnologySkill =
 	| 'Bun'
 	| 'CUDA'
 	| 'Cypress'
+	| 'Deno'
 	| 'Django'
 	| 'Docker'
 	| 'Electron'

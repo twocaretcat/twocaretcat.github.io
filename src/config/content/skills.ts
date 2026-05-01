@@ -35,6 +35,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'Astro',
 		'Bun',
 		'Cypress',
+		'Deno',
 		'Django',
 		'Docker',
 		'Express.js',
