@@ -109,11 +109,9 @@ export const PAGES_CONTENT_CONFIG: PagesContentConfig = {
 					'Jest',
 					'JSP',
 					'JUnit',
-					'Linux',
 					'NumPy',
 					'Oracle DB',
 					'Puppeteer',
-					'Regular Expressions',
 				],
 			},
 			[SkillType.Tools]: {
