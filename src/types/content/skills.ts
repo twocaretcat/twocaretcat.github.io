@@ -20,6 +20,7 @@ export type LanguageSkill =
 	| 'C/C++'
 	| 'CSS'
 	| 'Datalog'
+	| 'GraphQL'
 	| 'HTML'
 	| 'Java'
 	| 'JavaScript/TypeScript'
@@ -110,6 +111,7 @@ export type TopicSkill =
 	| 'Code Review'
 	| 'Communication'
 	| 'OOP'
+	| 'TDD'
 	| 'Unit Testing';
 
 /**
