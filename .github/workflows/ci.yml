@@ -36,7 +36,7 @@ jobs:
         uses: ./.github/actions/setup
 
       - name: 🧹 Lint
-        run: bunx biome ci .
+        run: bun biome lint
 
   typecheck:
     name: 🔍 Typecheck
@@ -84,7 +84,7 @@ jobs:
 
       - name: 🔨 Build with Gatsby
         env:
-          PREFIX_PATHS: 'true'
+          PREFIX_PATHS: "true"
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: bun run build
 
