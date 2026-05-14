@@ -40,10 +40,11 @@ type GithubRepoNodeProps = Omit<
 
 type ParseMetadataReturnValue = {
 	name: Nullable<string>;
+	tagline: Nullable<string>;
 	background: Nullable<string>;
 	logoPath: Nullable<string>;
 	category: Nullable<string>;
-	// TODO: Add subcategory
+	subcategory: Nullable<string>;
 	languages: string[];
 	technologies: string[];
 	tools: string[];
@@ -87,9 +88,11 @@ function parseProjectMetadata(
 
 		return {
 			name: null,
+			tagline: null,
 			background: null,
 			logoPath: null,
 			category: null,
+			subcategory: null,
 			languages: [],
 			technologies: [],
 			tools: [],
@@ -109,13 +112,15 @@ function parseProjectMetadata(
 		panic(fromError(parseResult.error));
 	}
 
-	const { background, logoPath, schema, ...remainingProps } = parseResult.data;
+	const { tagline, background, logoPath, subcategory, schema, ...remainingProps } = parseResult.data;
 
 	// Reconstruct the object using conditional properties because Zod doesn't support exactOptionalPropertyTypes
 	return {
 		...remainingProps,
+		tagline: tagline ?? null,
 		background: background ?? null,
 		logoPath: logoPath ?? null,
+		subcategory: subcategory ?? null,
 		schema: {
 			type: schema?.type ?? null,
 			applicationCategory: schema?.applicationCategory ?? null,
