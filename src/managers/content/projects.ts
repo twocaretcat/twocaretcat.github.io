@@ -33,7 +33,7 @@ import {
 } from '../../utils/other.ts';
 import { assertIsDefined } from '../../utils/other.ts';
 import { prettify } from '../../utils/other.ts';
-import { assertIsDateString, toSentence } from '../../utils/strings.ts';
+import { assertIsDateString, capitalizeWord, toSentence } from '../../utils/strings.ts';
 import { assertIsUrlString } from '../../utils/urls.ts';
 import { getPageContentConfig, getProjectCategoryColor } from '../config.ts';
 import { getSiteMetadata } from '../config.ts';
@@ -70,18 +70,22 @@ function buildGithubRepoProject(
 ): GithubRepoProject {
 	const {
 		createdAt,
+		tagline: nodeTagline,
 		description,
 		background: nodeBackground,
 		logoUrl: nodeLogoUrl,
 		homepageUrl: nodeHomepageUrl,
 		category,
+		subcategory: nodeSubcategory,
 		schema,
 		updatedAt,
 		url,
 		...remainingProps
 	} = githubRepoNode;
 
+	const tagline = callIfDefined(capitalizeWord, nodeTagline);
 	const background = callIfDefined(toSentence, nodeBackground);
+	const subcategory = callIfDefined(capitalizeWord, nodeSubcategory);
 	// For some reason, homepageUrl can be an empty string in some cases, so replace it with undefined if that's the case
 	const homepageUrl = callIfDefined(
 		assertIsUrlString,
@@ -103,9 +107,11 @@ function buildGithubRepoProject(
 
 	return {
 		...remainingProps,
+		...ifDefined({ tagline }),
 		...ifDefined({ background }),
 		...ifDefined({ logoUrl }),
 		...ifDefined({ homepageUrl }),
+		...ifDefined({ subcategory }),
 		schema: {
 			...ifDefined({ type }),
 			...ifDefined({ applicationCategory }),

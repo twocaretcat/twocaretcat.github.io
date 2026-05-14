@@ -4,12 +4,16 @@
 */
 
 import { SKILLS_CONFIG } from '../../config/content/skills.ts';
+import type { PageContentEntryConfig } from '../../types/content/content.ts';
 import {
+	type LanguageSkill,
 	type Skill,
 	SkillType,
 	type SkillsConfig,
+	type TechnologySkill,
+	type ToolSkill,
+	type TopicSkill,
 } from '../../types/content/skills.ts';
-import { keysOf } from '../../utils/other.ts';
 import { getPageContentConfig } from '../config.ts';
 import { filterEntries } from './utils.ts';
 
@@ -21,23 +25,19 @@ import { filterEntries } from './utils.ts';
  */
 export function getSkillsForPage(pagePath: string) {
 	const pageSkillsConfig = getPageContentConfig(pagePath).skills;
-	const skillSubsets: SkillsConfig = {
-		[SkillType.Languages]: [],
-		[SkillType.Technologies]: [],
-		[SkillType.Tools]: [],
-		[SkillType.Topics]: [],
-	};
-	const skillTypes = keysOf(skillSubsets);
 
-	// For each skill type, get the computed list of skills
-	for (const skillType of skillTypes) {
-		skillSubsets[skillType] = filterEntries<Skill>(
+	const filterSkillType = <T extends Skill>(skillType: SkillType): T[] =>
+		filterEntries<T>(
 			pagePath,
-			SKILLS_CONFIG[skillType],
-			pageSkillsConfig[skillType],
-			(skill: Skill) => skill,
+			SKILLS_CONFIG[skillType] as readonly T[],
+			pageSkillsConfig[skillType] as PageContentEntryConfig<T>,
+			(skill) => skill,
 		);
-	}
 
-	return skillSubsets;
+	return {
+		[SkillType.Languages]: filterSkillType<LanguageSkill>(SkillType.Languages),
+		[SkillType.Technologies]: filterSkillType<TechnologySkill>(SkillType.Technologies),
+		[SkillType.Tools]: filterSkillType<ToolSkill>(SkillType.Tools),
+		[SkillType.Topics]: filterSkillType<TopicSkill>(SkillType.Topics),
+	} satisfies SkillsConfig;
 }

@@ -3,7 +3,7 @@
 	-----------------------------------------------------------------------------------
 */
 
-import { type PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import type { PageSection } from '../../types/components.ts';
 import type { PropsWithClassName } from '../../types/components.ts';
 import { getClassNameProps } from '../../utils/other.ts';

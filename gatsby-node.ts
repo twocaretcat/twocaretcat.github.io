@@ -176,7 +176,8 @@ async function createProjectCategoryBadges() {
 			panic(`CSS color '${cssColor}' is not in the expected format`);
 		}
 
-		const hexColor = colors[colorName]?.[colorShade];
+		const palette = colors[colorName as keyof typeof colors];
+		const hexColor = typeof palette === 'object' ? palette[colorShade as keyof typeof palette] : undefined;
 
 		if (!isDefined(hexColor)) {
 			panic(`CSS color '${cssColor}' is not a valid theme color`);
