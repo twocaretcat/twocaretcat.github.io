@@ -19,7 +19,7 @@ import type {
 } from '../types/content/projects.ts';
 import type { UrlString } from '../types/strings.ts';
 import type { Maybe, Nullable } from '../types/utils.ts';
-import { ifDefined, isDefined } from '../utils/other.ts';
+import { isDefined } from '../utils/other.ts';
 import { toKebabCase, toTitleCase } from '../utils/strings.ts';
 import { getAbsoluteUrl } from '../utils/urls.ts';
 import { endLogGroup, info, panic, startLogGroup, warn } from './logger.ts';
