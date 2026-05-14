@@ -19,7 +19,7 @@ import type {
 } from '../types/content/projects.ts';
 import type { UrlString } from '../types/strings.ts';
 import type { Maybe, Nullable } from '../types/utils.ts';
-import { isDefined } from '../utils/other.ts';
+import { isDefined, prettify } from '../utils/other.ts';
 import { toKebabCase, toTitleCase } from '../utils/strings.ts';
 import { getAbsoluteUrl } from '../utils/urls.ts';
 import { endLogGroup, info, panic, startLogGroup, warn } from './logger.ts';
@@ -374,12 +374,12 @@ export function transformGithubDataNode(
 	const githubRepoNodes = githubDataNode.data?.user?.repositories.nodes;
 
 	if (!isDefined(githubRepoNodes)) {
-		panic('node.data.user.repositories.nodes is undefined');
+		panic(`node.data.user.repositories.nodes is undefined. Response: ${prettify(githubDataNode)}`);
 	}
 
 	for (const githubRepoNode of githubRepoNodes) {
 		if (!isDefined(githubRepoNode)) {
-			panic('node.data.user.repositories.nodes[] is undefined');
+			panic(`node.data.user.repositories.nodes[] is undefined. Response: ${prettify(githubDataNode)}`);
 		}
 
 		info(`Transforming GithubRepo node for '${githubRepoNode.name}'...`);
