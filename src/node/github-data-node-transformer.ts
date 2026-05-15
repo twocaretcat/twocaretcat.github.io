@@ -112,7 +112,14 @@ function parseProjectMetadata(
 		panic(fromError(parseResult.error));
 	}
 
-	const { tagline, background, logoPath, subcategory, schema, ...remainingProps } = parseResult.data;
+	const {
+		tagline,
+		background,
+		logoPath,
+		subcategory,
+		schema,
+		...remainingProps
+	} = parseResult.data;
 
 	// Reconstruct the object using conditional properties because Zod doesn't support exactOptionalPropertyTypes
 	return {
@@ -374,12 +381,16 @@ export function transformGithubDataNode(
 	const githubRepoNodes = githubDataNode.data?.user?.repositories.nodes;
 
 	if (!isDefined(githubRepoNodes)) {
-		panic(`node.data.user.repositories.nodes is undefined. Response: ${prettify(githubDataNode)}`);
+		panic(
+			`node.data.user.repositories.nodes is undefined. Response: ${prettify(githubDataNode)}`,
+		);
 	}
 
 	for (const githubRepoNode of githubRepoNodes) {
 		if (!isDefined(githubRepoNode)) {
-			panic(`node.data.user.repositories.nodes[] is undefined. Response: ${prettify(githubDataNode)}`);
+			panic(
+				`node.data.user.repositories.nodes[] is undefined. Response: ${prettify(githubDataNode)}`,
+			);
 		}
 
 		info(`Transforming GithubRepo node for '${githubRepoNode.name}'...`);

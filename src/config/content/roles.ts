@@ -5,8 +5,8 @@
 
 import {
 	RoleCategory,
-	RoleType,
 	type RolesConfig,
+	RoleType,
 } from '../../types/content/roles.ts';
 
 export const ROLES_CONFIG: RolesConfig = {

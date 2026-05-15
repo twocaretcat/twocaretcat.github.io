@@ -4,8 +4,8 @@
 */
 
 import {
-	SocialImageType,
 	type SocialImagesGenerationConfig,
+	SocialImageType,
 } from '../types/other.ts';
 
 export const SOCIAL_IMAGES_GENERATION_CONFIG: SocialImagesGenerationConfig = {

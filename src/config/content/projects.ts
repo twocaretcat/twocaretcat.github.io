@@ -5,8 +5,8 @@
 
 import {
 	ProjectCategory,
-	ProjectType,
 	type ProjectsConfig,
+	ProjectType,
 	SchemaApplicationCategory,
 	SchemaType,
 } from '../../types/content/projects.ts';

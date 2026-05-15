@@ -5,8 +5,8 @@
 
 import {
 	type AnimationProps,
-	type Spring,
 	motion,
+	type Spring,
 	useMotionTemplate,
 	useReducedMotion,
 	useSpring,

@@ -8,8 +8,8 @@ import type { PageContentEntryConfig } from '../../types/content/content.ts';
 import {
 	type LanguageSkill,
 	type Skill,
-	SkillType,
 	type SkillsConfig,
+	SkillType,
 	type TechnologySkill,
 	type ToolSkill,
 	type TopicSkill,
@@ -36,7 +36,9 @@ export function getSkillsForPage(pagePath: string) {
 
 	return {
 		[SkillType.Languages]: filterSkillType<LanguageSkill>(SkillType.Languages),
-		[SkillType.Technologies]: filterSkillType<TechnologySkill>(SkillType.Technologies),
+		[SkillType.Technologies]: filterSkillType<TechnologySkill>(
+			SkillType.Technologies,
+		),
 		[SkillType.Tools]: filterSkillType<ToolSkill>(SkillType.Tools),
 		[SkillType.Topics]: filterSkillType<TopicSkill>(SkillType.Topics),
 	} satisfies SkillsConfig;

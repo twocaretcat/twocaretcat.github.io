@@ -6,14 +6,14 @@
 
 import { motion } from 'motion/react';
 import type { FieldValues } from 'react-hook-form';
-import {
-	AlertType,
-	type InputElementRenderFn,
-} from '../../types/components.ts';
 import type {
 	Input,
 	PropsWithClassName,
 	PropsWithLayoutAnimations,
+} from '../../types/components.ts';
+import {
+	AlertType,
+	type InputElementRenderFn,
 } from '../../types/components.ts';
 import {
 	getClassNameProps,

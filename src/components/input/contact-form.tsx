@@ -13,12 +13,12 @@ import {
 	CONTACT_FORM_POST_URL,
 } from '../../config/constants.ts';
 import { error, info } from '../../node/logger.ts';
+import type { PropsWithClassName } from '../../types/components.ts';
 import {
 	AlertType,
 	type InputValidationOptions,
 	TooltipPosition,
 } from '../../types/components.ts';
-import type { PropsWithClassName } from '../../types/components.ts';
 import {
 	getClassNameProps,
 	getOrDefault,

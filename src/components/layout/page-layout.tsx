@@ -4,12 +4,14 @@
 */
 
 import type { PropsWithChildren } from 'react';
-import type { PageSection } from '../../types/components.ts';
-import type { PropsWithClassName } from '../../types/components.ts';
+import type {
+	PageSection,
+	PropsWithClassName,
+} from '../../types/components.ts';
 import { getClassNameProps } from '../../utils/other.ts';
+import { BaseLayout } from './base-layout.tsx';
 import { Footer } from './footer.tsx';
 import { Header } from './header.tsx';
-import { BaseLayout } from './base-layout.tsx';
 
 // Types
 

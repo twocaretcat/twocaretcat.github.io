@@ -3,8 +3,7 @@
 	------------------------
 */
 
-import type { Link } from '../../types/components.ts';
-import type { PropsWithClassName } from '../../types/components.ts';
+import type { Link, PropsWithClassName } from '../../types/components.ts';
 import { getClassNameProps, isDefined } from '../../utils/other.ts';
 import { LinkWrapper } from './link-wrapper.tsx';
 

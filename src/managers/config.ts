@@ -13,8 +13,8 @@ import { warn } from '../node/logger.ts';
 import type { PageContentConfig } from '../types/content/content.ts';
 import type {
 	PageMetadata,
-	SocialImageType,
 	SocialImagesGenerationConfig,
+	SocialImageType,
 	Theme,
 	ThemesConfig,
 } from '../types/other.ts';

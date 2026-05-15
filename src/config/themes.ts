@@ -3,7 +3,7 @@
 	---------------------------
 */
 
-import { ThemeType, type ThemesConfig } from '../types/other.ts';
+import { type ThemesConfig, ThemeType } from '../types/other.ts';
 
 export const THEMES_CONFIG: ThemesConfig = {
 	[ThemeType.Light]: {

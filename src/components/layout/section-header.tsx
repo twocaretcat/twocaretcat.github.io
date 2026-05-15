@@ -4,11 +4,11 @@
 */
 
 import type { PropsWithChildren } from 'react';
+import type { PropsWithClassName } from '../../types/components.ts';
 import {
 	type ButtonElementRenderFn,
 	TooltipPosition,
 } from '../../types/components.ts';
-import type { PropsWithClassName } from '../../types/components.ts';
 import type { Maybe } from '../../types/utils.ts';
 import { getClassNameProps } from '../../utils/other.ts';
 import { SectionHeading } from '../text/section-heading.tsx';

@@ -9,13 +9,13 @@ import {
 	EXPERIENCE_PATH,
 	INDEX_PATH,
 	PAGE_TEMPLATES_DIR,
-	PROJECTS_PATH,
-	PROJECTS_PATH_SHORT,
 	PROJECT_METADATA_SCHEMA,
 	PROJECT_METADATA_SCHEMA_FILE,
+	PROJECTS_PATH,
+	PROJECTS_PATH_SHORT,
 	RESUME_PATH,
-	SOCIAL_IMAGES_PATH,
 	SOCIAL_IMAGE_TEMPLATES_DIR,
+	SOCIAL_IMAGES_PATH,
 } from './src/config/constants.ts';
 import {
 	getPageMetadata,
@@ -177,7 +177,10 @@ async function createProjectCategoryBadges() {
 		}
 
 		const palette = colors[colorName as keyof typeof colors];
-		const hexColor = typeof palette === 'object' ? palette[colorShade as keyof typeof palette] : undefined;
+		const hexColor =
+			typeof palette === 'object'
+				? palette[colorShade as keyof typeof palette]
+				: undefined;
 
 		if (!isDefined(hexColor)) {
 			panic(`CSS color '${cssColor}' is not a valid theme color`);

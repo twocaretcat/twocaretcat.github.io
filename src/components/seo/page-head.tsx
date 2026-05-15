@@ -8,8 +8,8 @@ import { getSiteMetadata, getTheme } from '../../managers/config.ts';
 import type { PropsWithClassName } from '../../types/components.ts';
 import {
 	type PageMetadataProp,
-	SocialImageType,
 	type SocialImagesMetadataProp,
+	SocialImageType,
 	ThemeType,
 } from '../../types/other.ts';
 import { getClassNameProps } from '../../utils/other.ts';

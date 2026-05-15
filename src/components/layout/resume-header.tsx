@@ -16,11 +16,11 @@ import { Breakpoint, TooltipPosition } from '../../types/components.ts';
 import type { CityAndStateString } from '../../types/strings.ts';
 import { getStartIndexOfLastWord } from '../../utils/strings.ts';
 import { getAbsoluteUrl, removeProtocol } from '../../utils/urls.ts';
+import { Divider } from '../divider.tsx';
 import { GhostButton } from '../input/ghost-button.tsx';
 import { GhostButtonLink } from '../links/ghost-button-link.tsx';
 import { Heading } from '../text/heading.tsx';
 import { ResponsiveText } from '../text/responsive-text.tsx';
-import { Divider } from '../divider.tsx';
 
 // Constants
 

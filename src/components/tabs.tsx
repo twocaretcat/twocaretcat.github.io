@@ -4,11 +4,11 @@
 */
 
 import { motion, useInView } from 'motion/react';
+import { useEffect } from 'react';
 import { USE_IN_VIEW_OPTIONS } from '../config/constants.ts';
 import type { PageSection } from '../types/components.ts';
-import { Tab } from './tab.tsx';
-import { useEffect } from 'react';
 import { toKebabCase } from '../utils/strings.ts';
+import { Tab } from './tab.tsx';
 
 interface Props {
 	sections: readonly PageSection[];

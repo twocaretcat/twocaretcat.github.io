@@ -3,7 +3,7 @@
 	------
 */
 
-import { SkillType, type SkillsConfig } from '../../types/content/skills.ts';
+import { type SkillsConfig, SkillType } from '../../types/content/skills.ts';
 
 export const SKILLS_CONFIG: SkillsConfig = {
 	[SkillType.Languages]: [

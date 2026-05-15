@@ -26,17 +26,24 @@ import {
 import { SkillType } from '../../types/content/skills.ts';
 import type { Maybe } from '../../types/utils.ts';
 import {
+	assertIsDefined,
 	callIfDefined,
 	findIndexOfSubstringInArray,
 	ifDefined,
+	prettify,
 	toEnum,
 } from '../../utils/other.ts';
-import { assertIsDefined } from '../../utils/other.ts';
-import { prettify } from '../../utils/other.ts';
-import { assertIsDateString, capitalizeWord, toSentence } from '../../utils/strings.ts';
+import {
+	assertIsDateString,
+	capitalizeWord,
+	toSentence,
+} from '../../utils/strings.ts';
 import { assertIsUrlString } from '../../utils/urls.ts';
-import { getPageContentConfig, getProjectCategoryColor } from '../config.ts';
-import { getSiteMetadata } from '../config.ts';
+import {
+	getPageContentConfig,
+	getProjectCategoryColor,
+	getSiteMetadata,
+} from '../config.ts';
 import { filterEntries } from './utils.ts';
 
 // Constants

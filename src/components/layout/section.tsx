@@ -3,9 +3,11 @@
 	------------
 */
 
-import { type ForwardedRef, type PropsWithChildren, forwardRef } from 'react';
-import type { ButtonElementRenderFn } from '../../types/components.ts';
-import type { PropsWithClassName } from '../../types/components.ts';
+import { type ForwardedRef, forwardRef, type PropsWithChildren } from 'react';
+import type {
+	ButtonElementRenderFn,
+	PropsWithClassName,
+} from '../../types/components.ts';
 import { getClassNameProps } from '../../utils/other.ts';
 import { toKebabCase } from '../../utils/strings.ts';
 import { Divider } from '../divider.tsx';
