@@ -3,7 +3,7 @@
  */
 
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import type { LayoutProps } from 'motion/react';
+import type { MotionProps } from 'motion/react';
 import type { RefObject } from 'react';
 import type {
 	FieldErrors,
@@ -24,8 +24,8 @@ export interface PropsWithClassName {
  * Props for components that accept optional layout animations using Motion
  */
 export interface PropsWithLayoutAnimations {
-	layout?: LayoutProps['layout'];
-	layoutRoot?: LayoutProps['layoutRoot'];
+	layout?: MotionProps['layout'];
+	layoutRoot?: MotionProps['layoutRoot'];
 }
 
 /**

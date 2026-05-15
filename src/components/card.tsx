@@ -4,9 +4,9 @@
 */
 
 import {
-	type AnimationProps,
+	type MotionProps,
 	motion,
-	type Spring,
+	type SpringOptions,
 	useMotionTemplate,
 	useReducedMotion,
 	useSpring,
@@ -48,8 +48,8 @@ const HOVER_PROPS = {
 
 // Remove the restDelta and restSpeed properties from a Motion transition object
 function getTransitionWithoutRestProps(
-	transition: Spring,
-): AnimationProps['transition'] {
+	transition: SpringOptions,
+): MotionProps['transition'] {
 	const { restDelta, restSpeed, ...transitionWithoutRestProps } = transition;
 
 	return transitionWithoutRestProps;
