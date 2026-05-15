@@ -83,6 +83,7 @@ export const PAGES_CONTENT_CONFIG: PagesContentConfig = {
 		[ContentType.Skills]: {
 			[SkillType.Languages]: {
 				limit: 10,
+				[EntryVisibility.Pin]: [],
 				[EntryVisibility.Hide]: [
 					'Bash',
 					'C/C++',
@@ -93,11 +94,14 @@ export const PAGES_CONTENT_CONFIG: PagesContentConfig = {
 					'Lua',
 					'MIPS Assembly',
 					'Nix',
+					'R',
 					'Regular Expressions',
+					'VBA',
 				],
 			},
 			[SkillType.Technologies]: {
 				limit: 10,
+				[EntryVisibility.Pin]: [],
 				[EntryVisibility.Hide]: [
 					'AVA',
 					'Bun',
@@ -116,10 +120,12 @@ export const PAGES_CONTENT_CONFIG: PagesContentConfig = {
 			},
 			[SkillType.Tools]: {
 				limit: 0,
+				[EntryVisibility.Pin]: [],
 				[EntryVisibility.Hide]: ['Blender', 'GIMP', 'Inkscape', 'Slack'],
 			},
 			[SkillType.Topics]: {
 				limit: 0,
+				[EntryVisibility.Pin]: [],
 			},
 		},
 		[ContentType.Projects]: {
@@ -140,18 +146,22 @@ export const PAGES_CONTENT_CONFIG: PagesContentConfig = {
 				'dotfiles',
 				'email-alias-generator',
 				'game-maps',
+				'gatsby-plugin-component-to-image',
 				'gitmojito',
 				'image-signer',
-				'internal-domain-name-calculator-for-true-charts-apps',
-				'twocaretcat-github-io',
-				'twocaretcat',
+				'komodo',
 				'resume',
 				'ridify',
 				'rtg-for-outlook',
 				'shared-file-finder-for-google-drive',
 				'short-end',
 				'tally-extension',
+				'tally-ts',
+				'tes-forecaster-add-in',
 				'tinyi18n',
+				'truecharts-domain-calc',
+				'twocaretcat-github-io',
+				'twocaretcat',
 				'watch-history-exporter-for-amazon-prime-video',
 			],
 		},
