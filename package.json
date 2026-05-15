@@ -48,6 +48,8 @@
 		"@tsparticles/engine": "^3.8.1",
 		"@tsparticles/react": "^3.0.0",
 		"@tsparticles/shape-square": "^3.8.1",
+		"baseline-browser-mapping": "^2.10.29",
+		"caniuse-lite": "^1.0.30001792",
 		"daisyui": "^4.12.24",
 		"dotenv": "^16.4.7",
 		"gatsby": "^5.14.1",
