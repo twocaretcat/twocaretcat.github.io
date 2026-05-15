@@ -3,7 +3,7 @@
 	-----------------
 */
 
-import { type HeadProps, type PageProps, graphql } from 'gatsby';
+import { graphql, type HeadProps, type PageProps } from 'gatsby';
 import { DocumentPageLayout } from '../components/layout/document-page-layout.tsx';
 import { Section } from '../components/layout/section.tsx';
 import { PageHead } from '../components/seo/page-head.tsx';
@@ -22,7 +22,6 @@ type PageContext = CoverLetterPageContext & SocialImagesMetadataProp;
 
 const SITE_METADATA = getSiteMetadata();
 
-// biome-ignore lint/style/noDefaultExport: Templates must use default exports
 export default function CoverLetterPage({
 	data,
 }: PageProps<Queries.CoverLetterPageQuery, PageContext>) {

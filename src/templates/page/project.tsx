@@ -9,6 +9,7 @@ import {
 	faCode,
 } from '@fortawesome/free-solid-svg-icons';
 import type { HeadProps, PageProps } from 'gatsby';
+import type { ComponentProps } from 'react';
 import { useCallback, useRef } from 'react';
 import { PageLayout } from '../../components/layout/page-layout.tsx';
 import { Section } from '../../components/layout/section.tsx';
@@ -25,7 +26,6 @@ import type { Maybe } from '../../types/utils.ts';
 import { ifDefined, isDefined } from '../../utils/other.ts';
 import { toSentence } from '../../utils/strings.ts';
 import { getAbsoluteUrl } from '../../utils/urls.ts';
-import type { ComponentProps } from 'react';
 
 // Types
 
@@ -113,7 +113,6 @@ function buildAppSchemaValue(value: Maybe<string>) {
 	return undefined;
 }
 
-// biome-ignore lint/style/noDefaultExport: Templates must use default exports
 export default function ProjectPageTemplate({
 	pageContext: { project },
 }: PageProps<null, PageContext>) {

@@ -8,7 +8,6 @@ import plugin from 'tailwindcss/plugin';
 import { getTheme } from './src/managers/config.ts';
 import { ThemeType } from './src/types/other.ts';
 
-// biome-ignore lint/style/noDefaultExport: Default export is required by Tailwind CSS
 export default {
 	content: ['src/**/*.{js,jsx,ts,tsx}'],
 	darkMode: ['class', `[data-theme="${ThemeType.Dark}"]`],
@@ -25,7 +24,6 @@ export default {
 			],
 		},
 		transitionDuration: {
-			// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by Tailwind CSS
 			DEFAULT: '200ms',
 		},
 		extend: {

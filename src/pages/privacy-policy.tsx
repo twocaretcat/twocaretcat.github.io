@@ -27,7 +27,6 @@ type PageContext = PrivacyPageContext & SocialImagesMetadataProp;
 
 const SITE_METADATA = getSiteMetadata();
 
-// biome-ignore lint/style/noDefaultExport: Pages must use default exports
 export default function PrivacyPolicyPage({
 	data,
 	pageContext: { pageMetadata },

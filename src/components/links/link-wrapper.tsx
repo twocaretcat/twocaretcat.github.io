@@ -5,8 +5,7 @@
 
 import { Link as GatsbyLink } from 'gatsby';
 import type { PropsWithChildren } from 'react';
-import type { Link } from '../../types/components.ts';
-import type { PropsWithClassName } from '../../types/components.ts';
+import type { Link, PropsWithClassName } from '../../types/components.ts';
 import { getClassNameProps } from '../../utils/other.ts';
 
 interface Props extends Link, PropsWithClassName, PropsWithChildren {}
@@ -33,7 +32,6 @@ export function LinkWrapper({
 			{children}
 		</GatsbyLink>
 	) : (
-		// biome-ignore lint/a11y/useValidAriaProps: aria-description is a draft rn but will likely be added to the spec
 		<a
 			href={to}
 			target="_blank"

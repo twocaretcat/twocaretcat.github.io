@@ -29,7 +29,6 @@ type PageContext = FundingPageContext & SocialImagesMetadataProp;
 
 const SITE_METADATA = getSiteMetadata();
 
-// biome-ignore lint/style/noDefaultExport: Pages must use default exports
 export default function FundingPage({
 	data,
 	pageContext: { pageMetadata },

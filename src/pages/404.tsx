@@ -22,7 +22,6 @@ type PageContext = NotFoundPageContext & SocialImagesMetadataProp;
 
 const SITE_METADATA = getSiteMetadata();
 
-// biome-ignore lint/style/noDefaultExport: Pages must use default exports
 export default function NotFoundPage({
 	pageContext: { pageMetadata },
 }: PageProps<null, PageContext>) {

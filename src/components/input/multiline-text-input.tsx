@@ -46,7 +46,7 @@ export function MultilineTextInput<T extends FieldValues>({
 				{...{ ...classNameProps, ...registerObj, ...inputOptions }}
 			/>
 		)) as InputElementRenderFn,
-		[],
+		[classNameProps, inputOptions],
 	);
 
 	return <BaseInput {...{ renderInput, name, errors, ...remainingProps }} />;

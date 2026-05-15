@@ -61,7 +61,6 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-plugin-purgecss',
 			options: {
 				tailwind: true,
-				// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by the plugin
 				purgeCSSOptions: {
 					safelist: [/where/, /data-theme/],
 				},
@@ -98,13 +97,9 @@ const config: GatsbyConfig = {
 			options: {
 				name: SITE_METADATA.title,
 				description: SITE_METADATA.description,
-				// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by the plugin
 				short_name: SITE_METADATA.shortTitle,
-				// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by the plugin
 				start_url: INDEX_PATH,
-				// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by the plugin
 				background_color: DARK_THEME['base-100'],
-				// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by the plugin
 				theme_color: DARK_THEME.primary,
 				display: 'standalone',
 				icon: `${__dirname}/src/${SITE_METADATA.iconPath}`,
@@ -144,7 +139,6 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-source-github-api',
 			options: {
 				token: process.env.GH_TOKEN,
-				// biome-ignore lint/style/useNamingConvention: Naming convention is enforced by the plugin
 				graphQLQuery: `
 					query ($projectMetadataPath: String, $readmePath: String, $author: String = "", $repoLimit: Int = 0, $topicLimit: Int = 0, $languageLimit: Int = 0) {
 						user(login: $author) {
@@ -218,5 +212,4 @@ const config: GatsbyConfig = {
 	],
 };
 
-// biome-ignore lint/style/noDefaultExport: Gatsby config must use default exports
 export default config;

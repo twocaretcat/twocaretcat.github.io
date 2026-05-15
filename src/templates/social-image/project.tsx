@@ -12,7 +12,6 @@ import { SocialImage } from '../../components/seo/social-image.tsx';
 import type { ButtonElementRenderFn } from '../../types/components.ts';
 import type { ProjectSocialImagePageContext } from '../../types/page-context.ts';
 
-// biome-ignore lint/style/noDefaultExport: Templates must use default exports
 export default function ProjectSocialImageTemplate({
 	pageContext: { project, imageMetadata },
 }: PageProps<null, ProjectSocialImagePageContext>) {
@@ -40,5 +39,4 @@ export default function ProjectSocialImageTemplate({
 	);
 }
 
-// biome-ignore lint/performance/noBarrelFile: We need to export the Head component for Gatsby to recognize it
 export { SocialImageHead as Head } from '../../components/seo/social-image-head.tsx';

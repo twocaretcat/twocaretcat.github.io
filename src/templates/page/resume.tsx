@@ -3,7 +3,7 @@
 	-----------------------------------------
 */
 
-import { type HeadProps, type PageProps, graphql } from 'gatsby';
+import { graphql, type HeadProps, type PageProps } from 'gatsby';
 import { useRef } from 'react';
 import { DocumentPageLayout } from '../../components/layout/document-page-layout.tsx';
 import { Section } from '../../components/layout/section.tsx';
@@ -36,7 +36,6 @@ const SITE_METADATA = getSiteMetadata();
 const ROLES = getRolesForPage(RESUME_PATH);
 const SKILLS = getSkillsForPage(RESUME_PATH);
 
-// biome-ignore lint/style/noDefaultExport: Templates must use default exports
 export default function ResumePageTemplate({
 	data,
 	pageContext: { projects },

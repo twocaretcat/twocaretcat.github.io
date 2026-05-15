@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import type { HeadProps, PageProps } from 'gatsby';
 import { useInView } from 'motion/react';
-import { Suspense, lazy, useCallback, useRef } from 'react';
+import { lazy, Suspense, useCallback, useRef } from 'react';
 import { HeroHeader } from '../../components/layout/hero-header.tsx';
 import { PageLayout } from '../../components/layout/page-layout.tsx';
 import { Section } from '../../components/layout/section.tsx';
@@ -42,7 +42,6 @@ const ContactForm = lazy(() =>
 	})),
 );
 
-// biome-ignore lint/style/noDefaultExport: Templates must use default exports
 export default function IndexPageTemplate({
 	pageContext: { projects, authorBio },
 }: PageProps<null, PageContext>) {
