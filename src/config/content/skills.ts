@@ -10,6 +10,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		// Common
 		'C/C++',
 		'CSS',
+		'GraphQL',
 		'HTML',
 		'Java',
 		'JavaScript/TypeScript',
@@ -68,6 +69,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'Jest',
 		'JSP',
 		'JUnit',
+		'Nano Stores',
 		'NumPy',
 		'Oracle DB',
 		'Puppeteer',
@@ -98,6 +100,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'Code Review',
 		'Communication',
 		'OOP',
+		'TDD',
 		'Unit Testing',
 	],
 } as const;

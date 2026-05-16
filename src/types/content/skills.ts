@@ -63,6 +63,7 @@ export type TechnologySkill =
 	| 'JSP'
 	| 'JUnit'
 	| 'Kubernetes'
+	| 'Nano Stores'
 	| 'Next.js'
 	| 'Node.js'
 	| 'NumPy'
