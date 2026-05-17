@@ -270,24 +270,6 @@ function doExcludeRepo(
 	return false;
 }
 
-/**
- * Build a unique slug for the repo
- *
- * @param name The name of the repo on GitHub
- * @param ownerUsername The username of the owner of the repo on GitHub
- * @returns A unique slug for the repo
- */
-function buildSlug(name: string, ownerUsername: string) {
-	const defaultSlug = toKebabCase(name);
-
-	// If the repo is not owned by the author, include the owner in the slug to avoid naming conflicts
-	if (ownerUsername !== SITE_METADATA.author.username.github) {
-		return `${ownerUsername}/${defaultSlug}`;
-	}
-
-	return defaultSlug;
-}
-
 // Transform the repo object into a format we can use
 function transformGithubRepoNode(
 	githubRepoNode: Queries.GithubDataDataUserRepositoriesNodes,
@@ -304,7 +286,7 @@ function transformGithubRepoNode(
 		languages: repoLanguages,
 		...remainingRepoProps
 	} = githubRepoNode;
-	const slug = buildSlug(repoName, repoOwnerUsername);
+	const slug = toKebabCase(repoName);
 	const {
 		name: metadataName,
 		category: metadataCategory,

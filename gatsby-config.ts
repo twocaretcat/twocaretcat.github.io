@@ -142,7 +142,7 @@ const config: GatsbyConfig = {
 				graphQLQuery: `
 					query ($projectMetadataPath: String, $readmePath: String, $author: String = "", $repoLimit: Int = 0, $topicLimit: Int = 0, $languageLimit: Int = 0) {
 						user(login: $author) {
-							repositories(first: $repoLimit, orderBy: {field: STARGAZERS, direction: DESC}) {
+							repositories(ownerAffiliations: [OWNER], first: $repoLimit, orderBy: {field: STARGAZERS, direction: DESC}) {
 								nodes {
 									createdAt
 									description
