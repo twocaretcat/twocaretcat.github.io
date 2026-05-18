@@ -35,12 +35,14 @@ export function toKebabCase(string: string): Lowercase<string> {
  * @example
  * capitalizeWord('hello') // Hello
  */
-export function capitalizeWord(word: string): Capitalize<string> {
+export function capitalizeWord<T extends string = string>(
+	word: T,
+): Capitalize<T> {
 	if (word === '') {
-		return word as Capitalize<string>;
+		return word as Capitalize<T>;
 	}
 
-	return `${(word[0] as string).toUpperCase()}${word.substring(1)}` as Capitalize<string>;
+	return `${(word[0] as string).toUpperCase()}${word.substring(1)}` as Capitalize<T>;
 }
 
 /**
@@ -51,8 +53,11 @@ export function capitalizeWord(word: string): Capitalize<string> {
  * @example
  * toTitleCase('hello-world') // Hello World
  */
-export function toTitleCase(string: string) {
-	return string.split(WORD_SEPARATOR_REGEX).map(capitalizeWord).join(' ');
+export function toTitleCase(string: string): Capitalize<string> {
+	return string
+		.split(WORD_SEPARATOR_REGEX)
+		.map(capitalizeWord)
+		.join(' ') as Capitalize<string>;
 }
 
 /**
@@ -77,12 +82,14 @@ export function toCamelCase(string: string) {
  * @example
  * toSentence('hello world') // Hello world.
  */
-export function toSentence(string: string): SentenceString {
+export function toSentence<T extends string = string>(
+	string: T,
+): SentenceString<T> {
 	const capitalizedString = capitalizeWord(string);
 
 	// If string ends with period, comma, exclamation point, question mark, or ellipsis, return as is
 	if (capitalizedString.match(SENTENCE_REGEX)) {
-		return capitalizedString as SentenceString;
+		return capitalizedString as SentenceString<T>;
 	}
 
 	return `${capitalizedString}.`;

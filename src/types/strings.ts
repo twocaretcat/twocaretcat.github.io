@@ -105,11 +105,15 @@ export type DateString = `${20}${1 | 2}${Digit}-${MonthDigits}-${DayDigits}`;
  *
  * @example 'City, State'
  */
-export type CityAndStateString = Capitalize<`${string}, ${string}`>;
+export type CityAndStateString<
+	TCity extends string = string,
+	TState extends string = string,
+> = Capitalize<`${TCity}, ${TState}`>;
 
 /**
  * Sentence string with proper capitalization and punctuation
  *
  * @example 'This is a sentence.'
  */
-export type SentenceString = Capitalize<`${string}${'.' | '!' | '?' | '…'}`>;
+export type SentenceString<T extends string = string> =
+	Capitalize<`${T}${'.' | '!' | '?' | '…'}`>;

@@ -69,7 +69,7 @@ type SiteMetadata = {
 
 // Constants
 
-const SITE_METADATA: SiteMetadata = (() => {
+const SITE_METADATA = (() => {
 	const config = SITE_METADATA_CONFIG;
 	const authorFullName: Capitalize<string> =
 		`${config.author.name.first} ${config.author.name.last}` as typeof config.author.name.first;
@@ -128,7 +128,7 @@ const SITE_METADATA: SiteMetadata = (() => {
 				country: config.author.location.country,
 			},
 		},
-	};
+	} as const satisfies SiteMetadata;
 })();
 
 // Functions
