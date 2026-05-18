@@ -20,7 +20,7 @@ import type {
 import type { UrlString } from '../types/strings.ts';
 import type { Maybe, Nullable } from '../types/utils.ts';
 import { isDefined, prettify } from '../utils/other.ts';
-import { toKebabCase, toTitleCase } from '../utils/strings.ts';
+import { toCamelCase, toKebabCase, toTitleCase } from '../utils/strings.ts';
 import { getAbsoluteUrl } from '../utils/urls.ts';
 import { endLogGroup, info, panic, startLogGroup, warn } from './logger.ts';
 
@@ -354,31 +354,79 @@ function createGithubRepoNode(
 	});
 }
 
+// Collect and flatten repo nodes from all sources in the GithubData node
+function collectAllRepoNodes(
+	githubDataNode: Queries.GithubData,
+): Queries.GithubDataDataUserRepositoriesNodes[] {
+	// Upcast so we can index with a string (toCamelCase returns one)
+	const data = githubDataNode.data as Record<
+		string,
+		Queries.GithubDataDataUser
+	>;
+
+	const sources = ['user', ...SITE_METADATA.author.githubOrgs] as const;
+	const allNodes: Queries.GithubDataDataUserRepositoriesNodes[] = [];
+
+	for (const source of sources) {
+		const nodes = data?.[toCamelCase(source)]?.repositories?.nodes;
+
+		if (!isDefined(nodes)) {
+			panic(
+				`node.data.${source}.repositories.nodes is undefined. Response: ${prettify(githubDataNode).slice(0, 1024)}...`,
+			);
+		}
+
+		for (const node of nodes) {
+			if (!isDefined(node)) {
+				panic(
+					`node.data.${source}.repositories.nodes[] is undefined. Response: ${prettify(githubDataNode).slice(0, 1024)}...`,
+				);
+			}
+
+			allNodes.push(node);
+		}
+	}
+
+	// Sort by stars descending so the most popular projects appear first
+	return allNodes.sort((a, b) => b.stargazerCount - a.stargazerCount);
+}
+
 // Transform the GitHub API response into a simple array of repos
 export function transformGithubDataNode(
 	githubDataNode: Queries.GithubData,
 	gatsbyCreateNode: Actions['createNode'],
 	createContentDigest: NodePluginArgs['createContentDigest'],
 ) {
-	const githubRepoNodes = githubDataNode.data?.user?.repositories.nodes;
+	const allNodes = collectAllRepoNodes(githubDataNode);
 
-	if (!isDefined(githubRepoNodes)) {
-		panic(
-			`node.data.user.repositories.nodes is undefined. Response: ${prettify(githubDataNode)}`,
+	// Track seen slugs to detect and warn on duplicates
+	const seenSlugs = new Map<string, string>();
+
+	for (const githubRepoNode of allNodes) {
+		info(
+			`Transforming GithubRepo node for '${githubRepoNode.owner.login}/${githubRepoNode.name}'...`,
 		);
-	}
-
-	for (const githubRepoNode of githubRepoNodes) {
-		if (!isDefined(githubRepoNode)) {
-			panic(
-				`node.data.user.repositories.nodes[] is undefined. Response: ${prettify(githubDataNode)}`,
-			);
-		}
-
-		info(`Transforming GithubRepo node for '${githubRepoNode.name}'...`);
 		startLogGroup();
 
 		const { githubRepo, readmeText } = transformGithubRepoNode(githubRepoNode);
+
+		if (isDefined(githubRepo)) {
+			const existing = seenSlugs.get(githubRepo.slug);
+
+			if (isDefined(existing)) {
+				warn(
+					`Duplicate slug '${githubRepo.slug}' for repos '${existing}' and '${githubRepoNode.owner.login}/${githubRepoNode.name}'. Skipping the latter`,
+				);
+				endLogGroup();
+
+				continue;
+			}
+
+			seenSlugs.set(
+				githubRepo.slug,
+				`${githubRepoNode.owner.login}/${githubRepoNode.name}`,
+			);
+		}
 
 		createGithubRepoNode(
 			githubDataNode,

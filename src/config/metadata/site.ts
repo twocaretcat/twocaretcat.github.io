@@ -25,6 +25,7 @@ export const SITE_METADATA_CONFIG = {
 			patreon: 'twocaretcat',
 			braveCreators: 'johng',
 		},
+		githubOrgs: ['jerboa88', 'caret-collective', 'caret-labs-co'],
 		location: {
 			city: 'Edmonton',
 			state: 'Alberta',

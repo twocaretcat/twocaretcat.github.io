@@ -91,15 +91,15 @@ function buildGithubRepoProject(
 	} = githubRepoNode;
 
 	const tagline = callIfDefined(
-		capitalizeWord<NonNullable<typeof nodeTagline>>,
+		capitalizeWord,
 		nodeTagline,
 	);
 	const background = callIfDefined(
-		toSentence<NonNullable<typeof nodeBackground>>,
+		toSentence,
 		nodeBackground,
 	);
 	const subcategory = callIfDefined(
-		capitalizeWord<NonNullable<typeof nodeSubcategory>>,
+		capitalizeWord,
 		nodeSubcategory,
 	);
 	// For some reason, homepageUrl can be an empty string in some cases, so replace it with undefined if that's the case

@@ -367,7 +367,7 @@ export function ifDefined<K extends string, V>(
  * callIfDefined((x) => x * 2, undefined) // undefined
  */
 export function callIfDefined<A, R, V extends A | null | undefined>(
-	fn: (arg: A) => R,
+	fn: (arg: NonNullable<V>) => R,
 	arg: V,
 ): CallIfDefinedResult<V, R> {
 	if (isDefined(arg)) {

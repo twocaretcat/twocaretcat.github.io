@@ -51,6 +51,7 @@ type SiteMetadata = {
 			github: string;
 			x: string;
 		};
+		githubOrgs: string[];
 		url: {
 			linkedin: UrlString;
 			github: UrlString;
@@ -114,6 +115,7 @@ const SITE_METADATA = (() => {
 				github: config.author.username.github,
 				x: config.author.username.x,
 			},
+			githubOrgs: config.author.githubOrgs,
 			url: {
 				linkedin: `https://linkedin.com/in/${config.author.username.linkedin}`,
 				github: `https://github.com/${config.author.username.github}`,
