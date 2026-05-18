@@ -729,6 +729,10 @@ type GithubDataData = {
   readonly user: Maybe<GithubDataDataUser>;
 };
 
+type GithubDataDataCaretCollective = {
+  readonly repositories: GithubDataDataUserRepositories;
+};
+
 type GithubDataDataCaretLabsCo = {
   readonly repositories: GithubDataDataUserRepositories;
 };
@@ -1567,11 +1571,8 @@ type GithubDataSortInput = {
 type GithubRepo = Node & {
   readonly background: Maybe<Scalars['String']>;
   readonly category: ProjectCategory;
-  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
   readonly childMarkdownRemark: Maybe<MarkdownRemark>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type MarkdownRemark */
-  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
   readonly createdAt: Scalars['Date'];
   readonly description: Scalars['String'];
   readonly forkCount: Scalars['Int'];
@@ -1650,7 +1651,6 @@ type GithubRepoFieldSelector = {
   readonly category: InputMaybe<ProjectCategoryFieldSelector>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly forkCount: InputMaybe<FieldSelectorEnum>;
@@ -1684,7 +1684,6 @@ type GithubRepoFilterInput = {
   readonly category: InputMaybe<ProjectCategoryFilterInput>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly forkCount: InputMaybe<IntQueryOperatorInput>;
@@ -1759,7 +1758,6 @@ type GithubRepoSortInput = {
   readonly category: InputMaybe<ProjectCategorySortInput>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
   readonly forkCount: InputMaybe<SortOrderEnum>;
@@ -2390,7 +2388,6 @@ type Query_githubRepoArgs = {
   category: InputMaybe<ProjectCategoryFilterInput>;
   childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   description: InputMaybe<StringQueryOperatorInput>;
   forkCount: InputMaybe<IntQueryOperatorInput>;
