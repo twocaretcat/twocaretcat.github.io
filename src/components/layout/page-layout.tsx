@@ -28,15 +28,14 @@ export function PageLayout({
 }: Props) {
 	const classNameProps = getClassNameProps(className);
 
+	// Code ported from Mergist
 	// const lsKeyForTheme = 'is-dark-theme';
 	// const lsKeyForMotion = 'is-motion-allowed';
-	// const lsKeyForAnalytics = `ga-disable-${props.siteMetadata.trackingId}`;
 	// Whether the component is currently being mounted or not
 	// We can use this to ignore initial state changes of the component
 	// const isMount = useIsMount();
 	// const [isDarkTheme, setIsDarkTheme] = useState<boolean>(getIsDarkMode());
 	// const [isMotionAllowed, setIsMotionAllowed] = useState<boolean>(getIsMotionAllowed());
-	// const [areAnalyticsAllowed, setAreAnalyticsAllowed] = useState<boolean>(getAreAnalyticsAllowed());
 
 	// Save the user's preferences to local storage or cookies when its state changes
 	// useEffect(() => {
@@ -47,10 +46,6 @@ export function PageLayout({
 	// 	StorageManager.setIf(!isMount, lsKeyForMotion, isMotionAllowed);
 	// }, [isMotionAllowed]);
 
-	// useEffect(() => {
-	// 	CookieManager.setIf(!isMount, lsKeyForAnalytics, !areAnalyticsAllowed);
-	// }, [areAnalyticsAllowed]);
-
 	// Get the user's preference from storage if it exists
 	// Otherwise, use the system preference if it is set or fall back to the default value
 	// function getIsDarkMode(): boolean {
@@ -59,10 +54,6 @@ export function PageLayout({
 
 	// function getIsMotionAllowed(): boolean {
 	// 	return StorageManager.get(lsKeyForMotion, !mediaFeatureMatches('prefers-reduced-motion', 'reduce', false));
-	// }
-
-	// function getAreAnalyticsAllowed(): boolean {
-	// 	return !CookieManager.get(lsKeyForAnalytics, false);
 	// }
 
 	// Define toggle functions and memoize before passing to the relevant context provider
@@ -80,18 +71,8 @@ export function PageLayout({
 	// 	}
 	// }), [isMotionAllowed]);
 
-	// const providerValuesForAnalytics = useMemo(() => ({
-	// 	isEnabled: areAnalyticsAllowed,
-	// 	toggle: () => {
-	// 		setAreAnalyticsAllowed(!areAnalyticsAllowed);
-	// 	}
-	// }), [areAnalyticsAllowed]);
-
 	// <DarkThemeContext.Provider value={providerValuesForTheme}>
 	// <AllowMotionContext.Provider value={providerValuesForMotion}>
-	// 	<SendAnalyticsContext.Provider value={providerValuesForAnalytics}>
-
-	// 	</SendAnalyticsContext.Provider>
 	// 	</AllowMotionContext.Provider>
 	// </DarkThemeContext.Provider>
 
