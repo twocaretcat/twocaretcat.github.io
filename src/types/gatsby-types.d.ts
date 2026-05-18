@@ -725,18 +725,46 @@ type GithubDataConnection_sumArgs = {
 };
 
 type GithubDataData = {
+  readonly jerboa88: Maybe<GithubDataDataJerboa88>;
   readonly user: Maybe<GithubDataDataUser>;
 };
 
+type GithubDataDataCaretCollective = {
+  readonly repositories: GithubDataDataUserRepositories;
+};
+
+type GithubDataDataCaretLabsCo = {
+  readonly repositories: GithubDataDataUserRepositories;
+};
+
 type GithubDataDataFieldSelector = {
+  readonly jerboa88: InputMaybe<GithubDataDataJerboa88FieldSelector>;
   readonly user: InputMaybe<GithubDataDataUserFieldSelector>;
 };
 
 type GithubDataDataFilterInput = {
+  readonly jerboa88: InputMaybe<GithubDataDataJerboa88FilterInput>;
   readonly user: InputMaybe<GithubDataDataUserFilterInput>;
 };
 
+type GithubDataDataJerboa88 = {
+  readonly repositories: GithubDataDataUserRepositories;
+};
+
+type GithubDataDataJerboa88FieldSelector = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesFieldSelector>;
+};
+
+type GithubDataDataJerboa88FilterInput = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesFilterInput>;
+};
+
+type GithubDataDataJerboa88SortInput = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesSortInput>;
+};
+
 type GithubDataDataSortInput = {
+  readonly jerboa88: InputMaybe<GithubDataDataJerboa88SortInput>;
   readonly user: InputMaybe<GithubDataDataUserSortInput>;
 };
 
@@ -1087,18 +1115,142 @@ type GithubDataRawResult = {
 };
 
 type GithubDataRawResultData = {
+  readonly jerboa88: Maybe<GithubDataRawResultDataJerboa88>;
   readonly user: Maybe<GithubDataRawResultDataUser>;
 };
 
 type GithubDataRawResultDataFieldSelector = {
+  readonly jerboa88: InputMaybe<GithubDataRawResultDataJerboa88FieldSelector>;
   readonly user: InputMaybe<GithubDataRawResultDataUserFieldSelector>;
 };
 
 type GithubDataRawResultDataFilterInput = {
+  readonly jerboa88: InputMaybe<GithubDataRawResultDataJerboa88FilterInput>;
   readonly user: InputMaybe<GithubDataRawResultDataUserFilterInput>;
 };
 
+type GithubDataRawResultDataJerboa88 = {
+  readonly repositories: Maybe<GithubDataRawResultDataJerboa88Repositories>;
+};
+
+type GithubDataRawResultDataJerboa88FieldSelector = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesFieldSelector>;
+};
+
+type GithubDataRawResultDataJerboa88FilterInput = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesFilterInput>;
+};
+
+type GithubDataRawResultDataJerboa88Repositories = {
+  readonly nodes: Maybe<ReadonlyArray<Maybe<GithubDataRawResultDataJerboa88RepositoriesNodes>>>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesFieldSelector = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesFieldSelector>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesFilterInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesFilterListInput>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodes = {
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly forkCount: Maybe<Scalars['Int']>;
+  readonly isFork: Maybe<Scalars['Boolean']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly openGraphImageUrl: Maybe<Scalars['String']>;
+  readonly owner: Maybe<GithubDataRawResultDataJerboa88RepositoriesNodesOwner>;
+  readonly stargazerCount: Maybe<Scalars['Int']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly usesCustomOpenGraphImage: Maybe<Scalars['Boolean']>;
+};
+
+
+type GithubDataRawResultDataJerboa88RepositoriesNodes_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type GithubDataRawResultDataJerboa88RepositoriesNodes_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesFieldSelector = {
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly forkCount: InputMaybe<FieldSelectorEnum>;
+  readonly isFork: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly openGraphImageUrl: InputMaybe<FieldSelectorEnum>;
+  readonly owner: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesOwnerFieldSelector>;
+  readonly stargazerCount: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly usesCustomOpenGraphImage: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesFilterInput = {
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly forkCount: InputMaybe<IntQueryOperatorInput>;
+  readonly isFork: InputMaybe<BooleanQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly openGraphImageUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly owner: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesOwnerFilterInput>;
+  readonly stargazerCount: InputMaybe<IntQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly usesCustomOpenGraphImage: InputMaybe<BooleanQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesFilterListInput = {
+  readonly elemMatch: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesFilterInput>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesOwner = {
+  readonly login: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesOwnerFieldSelector = {
+  readonly login: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesOwnerFilterInput = {
+  readonly login: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesOwnerSortInput = {
+  readonly login: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesNodesSortInput = {
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly forkCount: InputMaybe<SortOrderEnum>;
+  readonly isFork: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly openGraphImageUrl: InputMaybe<SortOrderEnum>;
+  readonly owner: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesOwnerSortInput>;
+  readonly stargazerCount: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly usesCustomOpenGraphImage: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataJerboa88RepositoriesSortInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesNodesSortInput>;
+};
+
+type GithubDataRawResultDataJerboa88SortInput = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataJerboa88RepositoriesSortInput>;
+};
+
 type GithubDataRawResultDataSortInput = {
+  readonly jerboa88: InputMaybe<GithubDataRawResultDataJerboa88SortInput>;
   readonly user: InputMaybe<GithubDataRawResultDataUserSortInput>;
 };
 
@@ -1419,11 +1571,8 @@ type GithubDataSortInput = {
 type GithubRepo = Node & {
   readonly background: Maybe<Scalars['String']>;
   readonly category: ProjectCategory;
-  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
   readonly childMarkdownRemark: Maybe<MarkdownRemark>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type MarkdownRemark */
-  readonly childrenMarkdownRemark: Maybe<ReadonlyArray<Maybe<MarkdownRemark>>>;
   readonly createdAt: Scalars['Date'];
   readonly description: Scalars['String'];
   readonly forkCount: Scalars['Int'];
@@ -1502,7 +1651,6 @@ type GithubRepoFieldSelector = {
   readonly category: InputMaybe<ProjectCategoryFieldSelector>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFieldSelector>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly description: InputMaybe<FieldSelectorEnum>;
   readonly forkCount: InputMaybe<FieldSelectorEnum>;
@@ -1536,7 +1684,6 @@ type GithubRepoFilterInput = {
   readonly category: InputMaybe<ProjectCategoryFilterInput>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
   readonly forkCount: InputMaybe<IntQueryOperatorInput>;
@@ -1611,7 +1758,6 @@ type GithubRepoSortInput = {
   readonly category: InputMaybe<ProjectCategorySortInput>;
   readonly childMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenMarkdownRemark: InputMaybe<MarkdownRemarkSortInput>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly description: InputMaybe<SortOrderEnum>;
   readonly forkCount: InputMaybe<SortOrderEnum>;
@@ -2242,7 +2388,6 @@ type Query_githubRepoArgs = {
   category: InputMaybe<ProjectCategoryFilterInput>;
   childMarkdownRemark: InputMaybe<MarkdownRemarkFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenMarkdownRemark: InputMaybe<MarkdownRemarkFilterListInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   description: InputMaybe<StringQueryOperatorInput>;
   forkCount: InputMaybe<IntQueryOperatorInput>;
@@ -3127,6 +3272,7 @@ type SiteSiteMetadata = {
 
 type SiteSiteMetadataAuthor = {
   readonly alumniOf: Maybe<Scalars['String']>;
+  readonly githubOrgs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly imageUrl: Maybe<Scalars['String']>;
   readonly jobTitle: Maybe<Scalars['String']>;
   readonly location: Maybe<SiteSiteMetadataAuthorLocation>;
@@ -3137,6 +3283,7 @@ type SiteSiteMetadataAuthor = {
 
 type SiteSiteMetadataAuthorFieldSelector = {
   readonly alumniOf: InputMaybe<FieldSelectorEnum>;
+  readonly githubOrgs: InputMaybe<FieldSelectorEnum>;
   readonly imageUrl: InputMaybe<FieldSelectorEnum>;
   readonly jobTitle: InputMaybe<FieldSelectorEnum>;
   readonly location: InputMaybe<SiteSiteMetadataAuthorLocationFieldSelector>;
@@ -3147,6 +3294,7 @@ type SiteSiteMetadataAuthorFieldSelector = {
 
 type SiteSiteMetadataAuthorFilterInput = {
   readonly alumniOf: InputMaybe<StringQueryOperatorInput>;
+  readonly githubOrgs: InputMaybe<StringQueryOperatorInput>;
   readonly imageUrl: InputMaybe<StringQueryOperatorInput>;
   readonly jobTitle: InputMaybe<StringQueryOperatorInput>;
   readonly location: InputMaybe<SiteSiteMetadataAuthorLocationFilterInput>;
@@ -3197,6 +3345,7 @@ type SiteSiteMetadataAuthorNameSortInput = {
 
 type SiteSiteMetadataAuthorSortInput = {
   readonly alumniOf: InputMaybe<SortOrderEnum>;
+  readonly githubOrgs: InputMaybe<SortOrderEnum>;
   readonly imageUrl: InputMaybe<SortOrderEnum>;
   readonly jobTitle: InputMaybe<SortOrderEnum>;
   readonly location: InputMaybe<SiteSiteMetadataAuthorLocationSortInput>;

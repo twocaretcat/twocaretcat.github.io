@@ -5,7 +5,7 @@
 
 import type { SiteMetadataConfig } from '../../types/other.ts';
 
-export const SITE_METADATA_CONFIG: SiteMetadataConfig = {
+export const SITE_METADATA_CONFIG = {
 	iconPath: 'images/icon.svg',
 	siteUrl: 'https://johng.io/',
 	sourceUrl: 'https://github.com/twocaretcat/twocaretcat.github.io/',
@@ -25,10 +25,11 @@ export const SITE_METADATA_CONFIG: SiteMetadataConfig = {
 			patreon: 'twocaretcat',
 			braveCreators: 'johng',
 		},
+		githubOrgs: ['jerboa88', 'caret-collective', 'caret-labs-co'],
 		location: {
 			city: 'Edmonton',
 			state: 'Alberta',
 			country: 'Canada',
 		},
 	},
-} as const;
+} as const satisfies SiteMetadataConfig;

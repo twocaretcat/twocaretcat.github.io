@@ -2,10 +2,23 @@
 	GraphQL types and queries
 */
 
+import { getSiteMetadata } from '../managers/config.ts';
+import { capitalizeWord, toCamelCase } from '../utils/strings.ts';
+
+const SITE_METADATA = getSiteMetadata();
+
 export const schema = `
 type GithubDataDataUser {
 	repositories: GithubDataDataUserRepositories!
 }
+
+${SITE_METADATA.author.githubOrgs
+	.map(
+		(org) => `type GithubDataData${capitalizeWord(toCamelCase(org))} {
+	repositories: GithubDataDataUserRepositories!
+}`,
+	)
+	.join('\n\n')}
 
 type GithubDataDataUserRepositories {
 	nodes: [GithubDataDataUserRepositoriesNodes]
@@ -95,6 +108,73 @@ type GithubRepo implements Node {
 	technologies: [String!]!
 	tools: [String!]!
 	topics: [String!]!
+}
+`;
+
+export const githubSourceQuery = `
+fragment RepoFields on Repository {
+	createdAt
+	description
+	forkCount
+	homepageUrl
+	isFork
+	languages(first: $languageLimit) {
+		nodes {
+			name
+		}
+	}
+	licenseInfo {
+		spdxId
+		name
+		url
+	}
+	projectMetadata: object(expression: $projectMetadataPath) {
+		... on Blob {
+			text
+		}
+	}
+	name
+	openGraphImageUrl
+	owner {
+		login
+	}
+	readme: object(expression: $readmePath) {
+		... on Blob {
+			text
+		}
+	}
+	repositoryTopics(first: $topicLimit) {
+		nodes {
+			topic {
+				name
+			}
+		}
+	}
+	stargazerCount
+	updatedAt
+	url
+	usesCustomOpenGraphImage
+}
+
+query ($projectMetadataPath: String, $readmePath: String, $author: String = "", $repoLimit: Int = 0, $topicLimit: Int = 0, $languageLimit: Int = 0) {
+	user(login: $author) {
+		repositories(ownerAffiliations: [OWNER], first: $repoLimit, orderBy: {field: NAME, direction: ASC}) {
+			nodes {
+				...RepoFields
+			}
+		}
+	}
+	${SITE_METADATA.author.githubOrgs
+		.map(
+			(org) => `${toCamelCase(org)}: organization(login: "${org}") {
+		repositories(first: $repoLimit, orderBy: {field: NAME, direction: ASC}) {
+			nodes {
+				...RepoFields
+			}
+		}
+	}`,
+		)
+		.join('\n\t\t')}
 }
 `;
 

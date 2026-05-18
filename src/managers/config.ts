@@ -51,6 +51,7 @@ type SiteMetadata = {
 			github: string;
 			x: string;
 		};
+		githubOrgs: string[];
 		url: {
 			linkedin: UrlString;
 			github: UrlString;
@@ -69,7 +70,7 @@ type SiteMetadata = {
 
 // Constants
 
-const SITE_METADATA: SiteMetadata = (() => {
+const SITE_METADATA = (() => {
 	const config = SITE_METADATA_CONFIG;
 	const authorFullName: Capitalize<string> =
 		`${config.author.name.first} ${config.author.name.last}` as typeof config.author.name.first;
@@ -114,6 +115,7 @@ const SITE_METADATA: SiteMetadata = (() => {
 				github: config.author.username.github,
 				x: config.author.username.x,
 			},
+			githubOrgs: config.author.githubOrgs,
 			url: {
 				linkedin: `https://linkedin.com/in/${config.author.username.linkedin}`,
 				github: `https://github.com/${config.author.username.github}`,
@@ -128,7 +130,7 @@ const SITE_METADATA: SiteMetadata = (() => {
 				country: config.author.location.country,
 			},
 		},
-	};
+	} as const satisfies SiteMetadata;
 })();
 
 // Functions
