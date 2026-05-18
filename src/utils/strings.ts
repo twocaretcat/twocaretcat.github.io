@@ -56,6 +56,20 @@ export function toTitleCase(string: string) {
 }
 
 /**
+ * Convert a string to camelCase
+ *
+ * @param string The string to convert
+ * @returns The string in camelCase
+ * @example
+ * toCamelCase('hello-world') // helloWorld
+ */
+export function toCamelCase(string: string) {
+	const [first, ...rest] = string.split(WORD_SEPARATOR_REGEX);
+
+	return [first, ...rest.map(capitalizeWord)].join('');
+}
+
+/**
  * Take a string and return it formatted as a proper sentence if it is not already (ie. capitalized and punctuated)
  *
  * @param string The string to format
