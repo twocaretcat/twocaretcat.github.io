@@ -98,6 +98,58 @@ type GithubRepo implements Node {
 }
 `;
 
+export const githubSourceQuery = `
+query ($projectMetadataPath: String, $readmePath: String, $author: String = "", $repoLimit: Int = 0, $topicLimit: Int = 0, $languageLimit: Int = 0) {
+	user(login: $author) {
+		repositories(ownerAffiliations: [OWNER], first: $repoLimit, orderBy: {field: STARGAZERS, direction: DESC}) {
+			nodes {
+				createdAt
+				description
+				forkCount
+				homepageUrl
+				isFork
+				languages(first: $languageLimit) {
+					nodes {
+						name
+					}
+				}
+				licenseInfo {
+					spdxId
+					name
+					url
+				}
+				projectMetadata: object(expression: $projectMetadataPath) {
+					... on Blob {
+						text
+					}
+				}
+				name
+				openGraphImageUrl
+				owner {
+					login
+				}
+				readme: object(expression: $readmePath) {
+					... on Blob {
+						text
+					}
+				}
+				repositoryTopics(first: $topicLimit) {
+					nodes {
+						topic {
+							name
+						}
+					}
+				}
+				stargazerCount
+				updatedAt
+				url
+				usesCustomOpenGraphImage
+			}
+		}
+	}
+}
+`;
+
 export const githubReposQuery = `
 query GithubRepos {
 	allGithubRepo {

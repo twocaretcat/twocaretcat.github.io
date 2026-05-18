@@ -19,6 +19,7 @@ import {
 	getTheme,
 } from './src/managers/config.ts';
 import { SocialImageType, ThemeType } from './src/types/other.ts';
+import { githubSourceQuery } from './src/node/graphql.ts';
 import { getAbsoluteUrl } from './src/utils/urls.ts';
 import tailwindConfig from './tailwind.config';
 
@@ -139,57 +140,7 @@ const config: GatsbyConfig = {
 			resolve: 'gatsby-source-github-api',
 			options: {
 				token: process.env.GH_TOKEN,
-				graphQLQuery: `
-					query ($projectMetadataPath: String, $readmePath: String, $author: String = "", $repoLimit: Int = 0, $topicLimit: Int = 0, $languageLimit: Int = 0) {
-						user(login: $author) {
-							repositories(ownerAffiliations: [OWNER], first: $repoLimit, orderBy: {field: STARGAZERS, direction: DESC}) {
-								nodes {
-									createdAt
-									description
-									forkCount
-									homepageUrl
-									isFork
-									languages(first: $languageLimit) {
-										nodes {
-											name
-										}
-									}
-									licenseInfo {
-										spdxId
-										name
-										url
-									}
-									projectMetadata: object(expression: $projectMetadataPath) {
-										... on Blob {
-											text
-										}
-									}
-									name
-									openGraphImageUrl
-									owner {
-										login
-									}
-									readme: object(expression: $readmePath) {
-										... on Blob {
-											text
-										}
-									}
-									repositoryTopics(first: $topicLimit) {
-										nodes {
-											topic {
-												name
-											}
-										}
-									}
-									stargazerCount
-									updatedAt
-									url
-									usesCustomOpenGraphImage
-								}
-							}
-						}
-					}
-				`,
+				graphQLQuery: githubSourceQuery,
 				variables: {
 					// Required
 					author: SITE_METADATA.author.username.github,
