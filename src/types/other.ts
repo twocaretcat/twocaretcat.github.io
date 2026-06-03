@@ -100,7 +100,7 @@ export interface SocialImagesMetadataProp {
 }
 
 /**
- * Image metadata added to the pageContext of {@link https://github.com/twocaretcat/gatsby-plugin-component-to-image | gatsby-plugin-component-to-image} components when they are created
+ * Image metadata added to the pageContext of {@link https://github.com/caret-collective/gatsby-plugin-component-to-image | gatsby-plugin-component-to-image} components when they are created
  */
 export interface ImageMetadataProp {
 	imageMetadata: JobOptions;

@@ -167,7 +167,7 @@ I appreciate the support!
 [daisyUI]: https://daisyui.com/
 [Formspark]: https://www.formspark.io/
 [Gatsby CLI docs]: https://www.gatsbyjs.com/docs/reference/gatsby-cli/
-[gatsby-plugin-component-to-image]: https://github.com/twocaretcat/gatsby-plugin-component-to-image
+[gatsby-plugin-component-to-image]: https://github.com/caret-collective/gatsby-plugin-component-to-image
 [gatsby-source-filesystem]: https://www.gatsbyjs.com/plugins/gatsby-source-filesystem/
 [gatsby-transformer-remark]: https://www.gatsbyjs.com/plugins/gatsby-transformer-remark/
 [Gatsby]: https://www.gatsbyjs.com/
