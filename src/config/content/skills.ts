@@ -98,6 +98,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 	[SkillType.Topics]: [
 		'Accessibility',
 		'Agile Methodologies',
+		'AI-Assisted Development',
 		'Asynchronous Communication',
 		'Automated Releases',
 		'Automated Testing',

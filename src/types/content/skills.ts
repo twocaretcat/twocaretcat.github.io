@@ -110,6 +110,7 @@ export type ToolSkill =
 export type TopicSkill =
 	| 'Accessibility'
 	| 'Agile Methodologies'
+	| 'AI-Assisted Development'
 	| 'Asynchronous Communication'
 	| 'Automated Releases'
 	| 'Automated Testing'
