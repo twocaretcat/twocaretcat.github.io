@@ -124,6 +124,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'Technical Documentation',
 		'TDD',
 		'Unit Testing',
+		'Version Control',
 		'Web Performance',
 	],
 } as const;

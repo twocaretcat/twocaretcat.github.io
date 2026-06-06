@@ -136,6 +136,7 @@ export type TopicSkill =
 	| 'Technical Documentation'
 	| 'TDD'
 	| 'Unit Testing'
+	| 'Version Control'
 	| 'Web Performance';
 
 /**
