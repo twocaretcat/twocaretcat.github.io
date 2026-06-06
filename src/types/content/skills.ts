@@ -108,12 +108,34 @@ export type ToolSkill =
  * A union of string literals representing all topic skills
  */
 export type TopicSkill =
+	| 'Accessibility'
 	| 'Agile Methodologies'
+	| 'Asynchronous Communication'
+	| 'Automated Releases'
+	| 'Automated Testing'
+	| 'CI/CD'
+	| 'Cloud Computing'
 	| 'Code Review'
-	| 'Communication'
+	| 'Component Design'
+	| 'Containerization'
+	| 'Cross-Functional Collaboration'
+	| 'Database Design'
+	| 'End-to-End Testing'
+	| 'Frontend Architecture'
+	| 'Integration Testing'
+	| 'Load Testing'
 	| 'OOP'
+	| 'Regression Testing'
+	| 'Requirements Analysis'
+	| 'Responsive Design'
+	| 'SOLID Principles'
+	| 'State Management'
+	| 'Static Code Analysis'
+	| 'System Design'
+	| 'Technical Documentation'
 	| 'TDD'
-	| 'Unit Testing';
+	| 'Unit Testing'
+	| 'Web Performance';
 
 /**
  * A type representing a skill
