@@ -186,5 +186,43 @@ export const PROJECTS_CONFIG: ProjectsConfig = {
 			createdAt: '2019-11-22',
 			updatedAt: '2019-12-21',
 		},
+		{
+			slug: 'caret-labs-co',
+			name: 'Caret Labs',
+			description:
+				'A responsive landing page establishing the identity and online presence of an upcoming digital design agency.',
+			background:
+				"Designed and developed the brand website for Caret Labs, a digital design agency currently in development. The site introduces the agency's visual identity through a polished, responsive landing page while providing a foundation for its future online presence.",
+			category: ProjectCategory.Website,
+			schema: {
+				type: SchemaType.Web,
+				applicationCategory: SchemaApplicationCategory.Design,
+				operatingSystem: 'Any',
+			},
+			languages: ['CSS', 'HTML', 'JavaScript', 'TypeScript'],
+			technologies: [
+				'Astro',
+				'Bun',
+				'Cloudflare Workers',
+				'GitHub Actions',
+				'Astro Sitemap',
+				'Astro Capo',
+				'Playform Compress',
+			],
+			tools: ['Dependabot', 'Git', 'GitHub', 'Prettier', 'Visual Studio Code'],
+			topics: [
+				'Branding',
+				'CI/CD',
+				'Responsive Design',
+				'SEO',
+				'SSG',
+				'UI/UX',
+				'Web Design',
+				'Web Performance',
+			],
+			createdAt: '2026-05-25',
+			updatedAt: '2026-06-20',
+			url: 'https://caretlabs.co',
+		}
 	],
 } as const;
