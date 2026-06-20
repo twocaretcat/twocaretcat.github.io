@@ -209,7 +209,7 @@ export const PROJECTS_CONFIG: ProjectsConfig = {
 				'Astro Capo',
 				'Playform Compress',
 			],
-			tools: ['Dependabot', 'Git', 'GitHub', 'Prettier', 'Visual Studio Code'],
+			tools: ['Dependabot', 'Git', 'GitHub', 'Prettier', 'VS Code'],
 			topics: [
 				'Branding',
 				'CI/CD',
@@ -252,7 +252,7 @@ export const PROJECTS_CONFIG: ProjectsConfig = {
 				'Vue I18n',
 				'VueUse',
 			],
-			tools: ['Git', 'GitHub', 'Oxfmt', 'Oxlint', 'Visual Studio Code'],
+			tools: ['Git', 'GitHub', 'Oxfmt', 'Oxlint', 'VS Code'],
 			topics: [
 				'Accessibility',
 				'Automated Testing',

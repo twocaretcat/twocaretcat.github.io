@@ -96,7 +96,7 @@ export const SKILLS_CONFIG: SkillsConfig = {
 		'Jupyter',
 		'Linux',
 		'Postman',
-		'Visual Studio Code',
+		'VS Code',
 		'Visual Studio',
 		// Uncommon
 		'Android Studio',

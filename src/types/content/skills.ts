@@ -114,7 +114,7 @@ export type ToolSkill =
 	| 'Linux'
 	| 'Postman'
 	| 'Slack'
-	| 'Visual Studio Code'
+	| 'VS Code'
 	| 'Visual Studio';
 
 /**
