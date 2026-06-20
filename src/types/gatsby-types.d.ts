@@ -725,6 +725,8 @@ type GithubDataConnection_sumArgs = {
 };
 
 type GithubDataData = {
+  readonly caretCollective: Maybe<GithubDataDataCaretCollective>;
+  readonly caretLabsCo: Maybe<GithubDataDataCaretLabsCo>;
   readonly jerboa88: Maybe<GithubDataDataJerboa88>;
   readonly user: Maybe<GithubDataDataUser>;
 };
@@ -733,16 +735,44 @@ type GithubDataDataCaretCollective = {
   readonly repositories: GithubDataDataUserRepositories;
 };
 
+type GithubDataDataCaretCollectiveFieldSelector = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesFieldSelector>;
+};
+
+type GithubDataDataCaretCollectiveFilterInput = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesFilterInput>;
+};
+
+type GithubDataDataCaretCollectiveSortInput = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesSortInput>;
+};
+
 type GithubDataDataCaretLabsCo = {
   readonly repositories: GithubDataDataUserRepositories;
 };
 
+type GithubDataDataCaretLabsCoFieldSelector = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesFieldSelector>;
+};
+
+type GithubDataDataCaretLabsCoFilterInput = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesFilterInput>;
+};
+
+type GithubDataDataCaretLabsCoSortInput = {
+  readonly repositories: InputMaybe<GithubDataDataUserRepositoriesSortInput>;
+};
+
 type GithubDataDataFieldSelector = {
+  readonly caretCollective: InputMaybe<GithubDataDataCaretCollectiveFieldSelector>;
+  readonly caretLabsCo: InputMaybe<GithubDataDataCaretLabsCoFieldSelector>;
   readonly jerboa88: InputMaybe<GithubDataDataJerboa88FieldSelector>;
   readonly user: InputMaybe<GithubDataDataUserFieldSelector>;
 };
 
 type GithubDataDataFilterInput = {
+  readonly caretCollective: InputMaybe<GithubDataDataCaretCollectiveFilterInput>;
+  readonly caretLabsCo: InputMaybe<GithubDataDataCaretLabsCoFilterInput>;
   readonly jerboa88: InputMaybe<GithubDataDataJerboa88FilterInput>;
   readonly user: InputMaybe<GithubDataDataUserFilterInput>;
 };
@@ -764,6 +794,8 @@ type GithubDataDataJerboa88SortInput = {
 };
 
 type GithubDataDataSortInput = {
+  readonly caretCollective: InputMaybe<GithubDataDataCaretCollectiveSortInput>;
+  readonly caretLabsCo: InputMaybe<GithubDataDataCaretLabsCoSortInput>;
   readonly jerboa88: InputMaybe<GithubDataDataJerboa88SortInput>;
   readonly user: InputMaybe<GithubDataDataUserSortInput>;
 };
@@ -1115,16 +1147,462 @@ type GithubDataRawResult = {
 };
 
 type GithubDataRawResultData = {
+  readonly caretCollective: Maybe<GithubDataRawResultDataCaretCollective>;
+  readonly caretLabsCo: Maybe<GithubDataRawResultDataCaretLabsCo>;
   readonly jerboa88: Maybe<GithubDataRawResultDataJerboa88>;
   readonly user: Maybe<GithubDataRawResultDataUser>;
 };
 
+type GithubDataRawResultDataCaretCollective = {
+  readonly repositories: Maybe<GithubDataRawResultDataCaretCollectiveRepositories>;
+};
+
+type GithubDataRawResultDataCaretCollectiveFieldSelector = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretCollectiveFilterInput = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesFilterInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositories = {
+  readonly nodes: Maybe<ReadonlyArray<Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodes>>>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesFieldSelector = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesFilterInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesFilterListInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodes = {
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly forkCount: Maybe<Scalars['Int']>;
+  readonly homepageUrl: Maybe<Scalars['String']>;
+  readonly isFork: Maybe<Scalars['Boolean']>;
+  readonly languages: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguages>;
+  readonly licenseInfo: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfo>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly openGraphImageUrl: Maybe<Scalars['String']>;
+  readonly owner: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwner>;
+  readonly projectMetadata: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadata>;
+  readonly readme: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadme>;
+  readonly repositoryTopics: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopics>;
+  readonly stargazerCount: Maybe<Scalars['Int']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly usesCustomOpenGraphImage: Maybe<Scalars['Boolean']>;
+};
+
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodes_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodes_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesFieldSelector = {
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly forkCount: InputMaybe<FieldSelectorEnum>;
+  readonly homepageUrl: InputMaybe<FieldSelectorEnum>;
+  readonly isFork: InputMaybe<FieldSelectorEnum>;
+  readonly languages: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesFieldSelector>;
+  readonly licenseInfo: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfoFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly openGraphImageUrl: InputMaybe<FieldSelectorEnum>;
+  readonly owner: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwnerFieldSelector>;
+  readonly projectMetadata: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadataFieldSelector>;
+  readonly readme: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadmeFieldSelector>;
+  readonly repositoryTopics: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsFieldSelector>;
+  readonly stargazerCount: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly usesCustomOpenGraphImage: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesFilterInput = {
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly forkCount: InputMaybe<IntQueryOperatorInput>;
+  readonly homepageUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly isFork: InputMaybe<BooleanQueryOperatorInput>;
+  readonly languages: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesFilterInput>;
+  readonly licenseInfo: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfoFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly openGraphImageUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly owner: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwnerFilterInput>;
+  readonly projectMetadata: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadataFilterInput>;
+  readonly readme: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadmeFilterInput>;
+  readonly repositoryTopics: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsFilterInput>;
+  readonly stargazerCount: InputMaybe<IntQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly usesCustomOpenGraphImage: InputMaybe<BooleanQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesFilterListInput = {
+  readonly elemMatch: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesFilterInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguages = {
+  readonly nodes: Maybe<ReadonlyArray<Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodes>>>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesFieldSelector = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesFilterInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesFilterListInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodes = {
+  readonly name: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesFieldSelector = {
+  readonly name: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesFilterInput = {
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesFilterListInput = {
+  readonly elemMatch: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesFilterInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesSortInput = {
+  readonly name: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesSortInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesNodesSortInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfo = {
+  readonly name: Maybe<Scalars['String']>;
+  readonly spdxId: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfoFieldSelector = {
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly spdxId: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfoFilterInput = {
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly spdxId: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfoSortInput = {
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly spdxId: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwner = {
+  readonly login: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwnerFieldSelector = {
+  readonly login: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwnerFilterInput = {
+  readonly login: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwnerSortInput = {
+  readonly login: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadata = {
+  readonly text: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadataFieldSelector = {
+  readonly text: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadataFilterInput = {
+  readonly text: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadataSortInput = {
+  readonly text: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadme = {
+  readonly text: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadmeFieldSelector = {
+  readonly text: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadmeFilterInput = {
+  readonly text: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadmeSortInput = {
+  readonly text: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopics = {
+  readonly nodes: Maybe<ReadonlyArray<Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodes>>>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsFieldSelector = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsFilterInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesFilterListInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodes = {
+  readonly topic: Maybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopic>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesFieldSelector = {
+  readonly topic: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopicFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesFilterInput = {
+  readonly topic: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopicFilterInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesFilterListInput = {
+  readonly elemMatch: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesFilterInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesSortInput = {
+  readonly topic: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopicSortInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopic = {
+  readonly name: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopicFieldSelector = {
+  readonly name: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopicFilterInput = {
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesTopicSortInput = {
+  readonly name: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsSortInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsNodesSortInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesNodesSortInput = {
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly forkCount: InputMaybe<SortOrderEnum>;
+  readonly homepageUrl: InputMaybe<SortOrderEnum>;
+  readonly isFork: InputMaybe<SortOrderEnum>;
+  readonly languages: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLanguagesSortInput>;
+  readonly licenseInfo: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesLicenseInfoSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly openGraphImageUrl: InputMaybe<SortOrderEnum>;
+  readonly owner: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesOwnerSortInput>;
+  readonly projectMetadata: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesProjectMetadataSortInput>;
+  readonly readme: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesReadmeSortInput>;
+  readonly repositoryTopics: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesRepositoryTopicsSortInput>;
+  readonly stargazerCount: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly usesCustomOpenGraphImage: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretCollectiveRepositoriesSortInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesNodesSortInput>;
+};
+
+type GithubDataRawResultDataCaretCollectiveSortInput = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataCaretCollectiveRepositoriesSortInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCo = {
+  readonly repositories: Maybe<GithubDataRawResultDataCaretLabsCoRepositories>;
+};
+
+type GithubDataRawResultDataCaretLabsCoFieldSelector = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretLabsCoFilterInput = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesFilterInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositories = {
+  readonly nodes: Maybe<ReadonlyArray<Maybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodes>>>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesFieldSelector = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesFieldSelector>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesFilterInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesFilterListInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodes = {
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly forkCount: Maybe<Scalars['Int']>;
+  readonly homepageUrl: Maybe<Scalars['String']>;
+  readonly isFork: Maybe<Scalars['Boolean']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly openGraphImageUrl: Maybe<Scalars['String']>;
+  readonly owner: Maybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwner>;
+  readonly readme: Maybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadme>;
+  readonly stargazerCount: Maybe<Scalars['Int']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly usesCustomOpenGraphImage: Maybe<Scalars['Boolean']>;
+};
+
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodes_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodes_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesFieldSelector = {
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly forkCount: InputMaybe<FieldSelectorEnum>;
+  readonly homepageUrl: InputMaybe<FieldSelectorEnum>;
+  readonly isFork: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly openGraphImageUrl: InputMaybe<FieldSelectorEnum>;
+  readonly owner: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwnerFieldSelector>;
+  readonly readme: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadmeFieldSelector>;
+  readonly stargazerCount: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly usesCustomOpenGraphImage: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesFilterInput = {
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly forkCount: InputMaybe<IntQueryOperatorInput>;
+  readonly homepageUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly isFork: InputMaybe<BooleanQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly openGraphImageUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly owner: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwnerFilterInput>;
+  readonly readme: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadmeFilterInput>;
+  readonly stargazerCount: InputMaybe<IntQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly usesCustomOpenGraphImage: InputMaybe<BooleanQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesFilterListInput = {
+  readonly elemMatch: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesFilterInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwner = {
+  readonly login: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwnerFieldSelector = {
+  readonly login: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwnerFilterInput = {
+  readonly login: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwnerSortInput = {
+  readonly login: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadme = {
+  readonly text: Maybe<Scalars['String']>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadmeFieldSelector = {
+  readonly text: InputMaybe<FieldSelectorEnum>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadmeFilterInput = {
+  readonly text: InputMaybe<StringQueryOperatorInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadmeSortInput = {
+  readonly text: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesNodesSortInput = {
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly forkCount: InputMaybe<SortOrderEnum>;
+  readonly homepageUrl: InputMaybe<SortOrderEnum>;
+  readonly isFork: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly openGraphImageUrl: InputMaybe<SortOrderEnum>;
+  readonly owner: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesOwnerSortInput>;
+  readonly readme: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesReadmeSortInput>;
+  readonly stargazerCount: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly usesCustomOpenGraphImage: InputMaybe<SortOrderEnum>;
+};
+
+type GithubDataRawResultDataCaretLabsCoRepositoriesSortInput = {
+  readonly nodes: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesNodesSortInput>;
+};
+
+type GithubDataRawResultDataCaretLabsCoSortInput = {
+  readonly repositories: InputMaybe<GithubDataRawResultDataCaretLabsCoRepositoriesSortInput>;
+};
+
 type GithubDataRawResultDataFieldSelector = {
+  readonly caretCollective: InputMaybe<GithubDataRawResultDataCaretCollectiveFieldSelector>;
+  readonly caretLabsCo: InputMaybe<GithubDataRawResultDataCaretLabsCoFieldSelector>;
   readonly jerboa88: InputMaybe<GithubDataRawResultDataJerboa88FieldSelector>;
   readonly user: InputMaybe<GithubDataRawResultDataUserFieldSelector>;
 };
 
 type GithubDataRawResultDataFilterInput = {
+  readonly caretCollective: InputMaybe<GithubDataRawResultDataCaretCollectiveFilterInput>;
+  readonly caretLabsCo: InputMaybe<GithubDataRawResultDataCaretLabsCoFilterInput>;
   readonly jerboa88: InputMaybe<GithubDataRawResultDataJerboa88FilterInput>;
   readonly user: InputMaybe<GithubDataRawResultDataUserFilterInput>;
 };
@@ -1250,6 +1728,8 @@ type GithubDataRawResultDataJerboa88SortInput = {
 };
 
 type GithubDataRawResultDataSortInput = {
+  readonly caretCollective: InputMaybe<GithubDataRawResultDataCaretCollectiveSortInput>;
+  readonly caretLabsCo: InputMaybe<GithubDataRawResultDataCaretLabsCoSortInput>;
   readonly jerboa88: InputMaybe<GithubDataRawResultDataJerboa88SortInput>;
   readonly user: InputMaybe<GithubDataRawResultDataUserSortInput>;
 };
