@@ -261,7 +261,7 @@ export const PROJECTS_CONFIG: ProjectsConfig = {
 				'Automated Testing',
 				'CI/CD',
 				'Frontend Architecture',
-				'Open Source',
+				'OSS',
 				'Responsive Design',
 				'State Management',
 				'Technical Documentation',
