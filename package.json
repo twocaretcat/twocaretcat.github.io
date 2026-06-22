@@ -33,7 +33,14 @@
 		"typecheck": "tsc --noEmit --skipLibCheck",
 		"lint": "biome lint",
 		"lint:write": "biome lint --write",
-		"format:write": "biome format --write"
+		"format:write": "biome format --write",
+		"test": "bun run test:unit && bun run test:component",
+		"test:unit": "TZ=UTC bun test --isolate test/unit test/integration",
+		"test:component": "TZ=UTC bun test --isolate --preload ./test/setup/dom.ts --preload ./test/setup/testing-library.ts test/component",
+		"test:browser": "TZ=UTC bun run build && bun run test:browser:serve",
+		"test:browser:serve": "TZ=UTC playwright test",
+		"test:browser:dev": "TZ=UTC PLAYWRIGHT_SERVER_MODE=development playwright test",
+		"upgrade-interactive": "bunx npm-check-updates -i --format group -p bun"
 	},
 	"dependencies": {
 		"@botpoison/browser": "^0.1.30",
