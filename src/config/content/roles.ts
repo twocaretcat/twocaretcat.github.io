@@ -12,6 +12,7 @@ import {
 export const ROLES_CONFIG: RolesConfig = {
 	[RoleType.Employment]: [
 		{
+			id: '2020-haemonetics-systems-analyst',
 			category: RoleCategory.Internship,
 			title: 'Systems Analyst',
 			company: 'Haemonetics Corporation',
@@ -29,6 +30,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			],
 		},
 		{
+			id: '2019-ats-ramp-agent',
 			category: RoleCategory.SeasonalJob,
 			title: 'Ramp Agent',
 			company: 'Airport Terminal Services',
@@ -42,6 +44,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			],
 		},
 		{
+			id: '2018-uhe-laborer',
 			category: RoleCategory.SeasonalJob,
 			title: 'General Production Laborer',
 			company: 'Universal Handling Equipment Ltd.',
@@ -58,6 +61,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			],
 		},
 		{
+			id: '2017-uhe-laborer',
 			category: RoleCategory.SeasonalJob,
 			title: 'General Production Laborer',
 			company: 'Universal Handling Equipment Ltd.',
@@ -74,6 +78,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			],
 		},
 		{
+			id: '2017-red-deer-advocate-paper-carrier',
 			category: RoleCategory.SeasonalJob,
 			title: 'Afternoon Paper Carrier',
 			company: 'Red Deer Advocate',
@@ -88,6 +93,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			],
 		},
 		{
+			id: '2015-uhe-shop-assistant',
 			category: RoleCategory.SeasonalJob,
 			title: 'Shop Assistant',
 			company: 'Universal Handling Equipment Ltd.',
@@ -105,6 +111,7 @@ export const ROLES_CONFIG: RolesConfig = {
 	],
 	[RoleType.Education]: [
 		{
+			id: '2017-uofa-bsc-computing-science-student',
 			title: 'BSc Specialization in Computing Science',
 			company: 'University of Alberta',
 			companyUrl: 'https://www.ualberta.ca/',
@@ -117,6 +124,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			],
 		},
 		{
+			id: '2010-eckville-high-school-student',
 			title: 'High School Diploma',
 			company: 'Eckville Junior/Senior High School',
 			companyUrl: 'https://ehs.wolfcreek.ab.ca/',
@@ -128,6 +136,7 @@ export const ROLES_CONFIG: RolesConfig = {
 	],
 	[RoleType.Volunteering]: [
 		{
+			id: '2019-iss-volunteer',
 			title: 'Event Assistant, Office Volunteer',
 			company: 'International Student Services, U of A',
 			companyUrl:

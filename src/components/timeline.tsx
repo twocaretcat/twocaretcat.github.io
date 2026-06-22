@@ -25,7 +25,7 @@ export function Timeline({ roles }: Props) {
 	return (
 		<ul className="timeline timeline-vertical timeline-snap-icon max-lg:timeline-compact">
 			{roles.map((role) => (
-				<li key={`${role.startDate}-${role.company}`} className="group">
+				<li key={role.id} className="group">
 					{HR_ELEMENT}
 					<TimelineEntry role={role} />
 					{HR_ELEMENT}
