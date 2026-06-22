@@ -32,13 +32,14 @@ The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for typ
 ## 🚀 Getting Started
 
 > [!NOTE]
-> This project uses [Bun] to speed up installation and build times. If you want to use Node.js instead, you can do so by replacing `bun` with your package manager of choice in the commands below — everything should work the same. For example, `bun install` can be replaced with `npm install` , `pnpm install`, or `yarn install`.
+> This project uses Bun to install dependencies and run its test suite.
+> The Gatsby application remains Node.js-compatible, so non-test commands can
+> use another package manager. Tests import `bun:test` and require Bun.
 >
 > If you are using the included GitHub Actions workflows, you'll need to update them to use Node.js and your preferred package manager.
 
 ### Prerequisites
-
-- [Bun] (or [Node.js] and your package manager of choice)
+- [Bun] for tests, or [Node.js] and another package manager for non-test workflows
 - A [GitHub personal access token] (PAT) that can be used to access the GitHub API. This token should have public (read-only) access to all repositories as it is used to fetch repository data for the projects section.
 
 ### Installation
@@ -46,7 +47,8 @@ The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for typ
 1. Clone the repo with `https://github.com/twocaretcat/twocaretcat.github.io.git`. Alternatively, you can download the repository as a zip file and extract it.
 2. Enter the project root with `cd twocaretcat.github.io`.
 3. Use `bun install` to install the app and all of its dependencies.
-4. Configure required environment variables and constants:
+4. Use `bunx playwright install chromium` to install Chromium for browser tests.
+5. Configure required environment variables and constants:
    1. The `GH_TOKEN` environment variable must be set to your GitHub PAT in order to fetch repository data, otherwise the build will fail. An easy way to do this is to create an `.env.development` or `.env.production` file in the project root like so:
 		```sh
 		# .env.development
@@ -54,7 +56,7 @@ The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for typ
 		```
 
    2. The site is configured to fetch repository data from the `twocaretcat` GitHub account by default. If you want to fetch data for a different user, replace the `username.github` value with your own username in [src/config/metadata/site.ts].
-5. Use `bun develop` to start the development server or `bun run build` to build the site for production.
+6. Use `bun develop` to start the development server or `bun run build` to build the site for production.
 
 ## 🤖 Advanced Usage
 
@@ -85,8 +87,13 @@ Currently, these values are only used for the contact section of the resume.
 - `bun clean`: Clear the local Gatsby cache. Use this if you encounter any issues with stale data/dependencies.
 - `bun typecheck`: Perform type checking using TypeScript.
 - `bun lint` and `bun format`: Apply linting and formatting fixes (respectively) to the codebase using Biome.js.
-- `bun update --interactive`: Upgrade dependencies interactively.
-
+- `bun run test`: Run all Bun unit, integration, and component tests.
+- `bun run test:unit`: Run Bun unit and integration tests without browser globals.
+- `bun run test:component`: Run React component tests with Testing Library and Happy DOM.
+- `bun run test:browser`: Build the site and run Chromium tests against the production server.
+- `bun run test:browser:dev`: Run Chromium tests against the Gatsby development server.
+- Playwright artifacts and HTML reports are written under `test/reports/`.
+- `bun upgrade-interactive`: Upgrade dependencies interactively.
 See the [Gatsby CLI docs] for additional commands and options. To run an arbitrary command, prefix it with `bun run` (ex. `bun run gatsby repl`).
 
 ### Stack

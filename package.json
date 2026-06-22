@@ -2,6 +2,7 @@
 	"name": "johng-io",
 	"version": "3.0.0",
 	"private": true,
+	"packageManager": "bun@1.3.14",
 	"description": "Portfolio site for John Goodliff, a software developer based in Edmonton, Alberta.",
 	"author": "John Goodliff (https://johng.io)",
 	"keywords": [
@@ -32,7 +33,14 @@
 		"typecheck": "tsc --noEmit --skipLibCheck",
 		"lint": "biome lint",
 		"lint:write": "biome lint --write",
-		"format:write": "biome format --write"
+		"format:write": "biome format --write",
+		"test": "bun run test:unit && bun run test:component",
+		"test:unit": "TZ=UTC bun test --isolate test/unit test/integration",
+		"test:component": "TZ=UTC bun test --isolate --preload ./test/setup/dom.ts --preload ./test/setup/testing-library.ts test/component",
+		"test:browser": "TZ=UTC bun run build && bun run test:browser:serve",
+		"test:browser:serve": "TZ=UTC playwright test",
+		"test:browser:dev": "TZ=UTC PLAYWRIGHT_SERVER_MODE=development playwright test",
+		"upgrade-interactive": "bunx npm-check-updates -i --format group -p bun"
 	},
 	"dependencies": {
 		"@botpoison/browser": "^0.1.30",
@@ -75,6 +83,13 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.15",
+		"@happy-dom/global-registrator": "^20.10.3",
+		"@playwright/test": "^1.60.0",
+		"@testing-library/dom": "^10.4.1",
+		"@testing-library/jest-dom": "^6.9.1",
+		"@testing-library/react": "^16.3.2",
+		"@testing-library/user-event": "^14.6.1",
+		"@types/bun": "1.3.14",
 		"@types/jsdom": "^28.0.3",
 		"@types/node": "^25.8.0",
 		"@types/react": "^18.3.28",
@@ -82,7 +97,6 @@
 		"autoprefixer": "^10.5.0",
 		"postcss": "^8.5.14",
 		"tailwindcss": "^3.4.19",
-		"typescript": "^6.0.3",
-		"@types/bun": "latest"
+		"typescript": "^6.0.3"
 	}
 }
