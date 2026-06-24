@@ -137,25 +137,25 @@ export const PROJECT_METADATA_SCHEMA = z
 			.array(z.string().min(1).max(128))
 			.nonempty()
 			.optional()
-			.describe('A list of languages used in the project')
+			.describe('A list of language skill IDs used in the project')
 			.transform((value) => value ?? []),
 		technologies: z
 			.array(z.string().min(1).max(128))
 			.nonempty()
 			.optional()
-			.describe('A list of technologies used in the project')
+			.describe('A list of technology skill IDs used in the project')
 			.transform((value) => value ?? []),
 		tools: z
 			.array(z.string().min(1).max(128))
 			.nonempty()
 			.optional()
-			.describe('A list of tools used in the project')
+			.describe('A list of tool skill IDs used in the project')
 			.transform((value) => value ?? []),
 		topics: z
 			.array(z.string().min(1).max(128))
 			.nonempty()
 			.optional()
-			.describe('A list of topics for the project')
+			.describe('A list of topic skill IDs for the project')
 			.transform((value) => value ?? []),
 		schema: z
 			.object({

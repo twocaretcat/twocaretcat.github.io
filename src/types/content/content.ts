@@ -7,11 +7,9 @@ import type { AbsolutePathString } from '../strings.ts';
 import type { Project } from './projects.ts';
 import { type Role, type RoleId, RoleType } from './roles.ts';
 import {
-	type LanguageSkill,
+	type NormalizedSkillDefinition,
+	type SkillId,
 	SkillType,
-	type TechnologySkill,
-	type ToolSkill,
-	type TopicSkill,
 } from './skills.ts';
 
 /**
@@ -71,13 +69,22 @@ export interface PageContentConfig {
 	};
 	/** Skill curation grouped by skill type. */
 	[ContentType.Skills]: {
-		[SkillType.Languages]: PageContentEntryConfig<LanguageSkill, LanguageSkill>;
-		[SkillType.Technologies]: PageContentEntryConfig<
-			TechnologySkill,
-			TechnologySkill
+		[SkillType.Languages]: PageContentEntryConfig<
+			NormalizedSkillDefinition,
+			SkillId
 		>;
-		[SkillType.Tools]: PageContentEntryConfig<ToolSkill, ToolSkill>;
-		[SkillType.Topics]: PageContentEntryConfig<TopicSkill, TopicSkill>;
+		[SkillType.Technologies]: PageContentEntryConfig<
+			NormalizedSkillDefinition,
+			SkillId
+		>;
+		[SkillType.Tools]: PageContentEntryConfig<
+			NormalizedSkillDefinition,
+			SkillId
+		>;
+		[SkillType.Topics]: PageContentEntryConfig<
+			NormalizedSkillDefinition,
+			SkillId
+		>;
 	};
 	/** Project curation for the page. */
 	[ContentType.Projects]: PageContentEntryConfig<Project>;
