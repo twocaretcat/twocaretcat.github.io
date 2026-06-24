@@ -21,7 +21,7 @@ export function ResumeRoleEntries({ roles }: Props) {
 
 				return (
 					<ResumeDetailEntry
-						key={role.startDate.toString()}
+						key={role.id}
 						title={role.title}
 						subtitle={role.company}
 						subtitleUrl={role.companyUrl}

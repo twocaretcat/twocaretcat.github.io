@@ -13,6 +13,7 @@ import {
 	getProjectCategoryColor,
 	getSiteMetadata,
 } from '../managers/config.ts';
+import { formatSkillReferences } from '../managers/content/skills.ts';
 import type {
 	SchemaApplicationCategory,
 	SchemaType,
@@ -162,7 +163,7 @@ function transformLanguages(
 		warn('languages.nodes is undefined');
 	}
 
-	return Array.from(languages).sort();
+	return formatSkillReferences(Array.from(languages).sort());
 }
 
 /**
@@ -291,6 +292,9 @@ function transformGithubRepoNode(
 		name: metadataName,
 		category: metadataCategory,
 		languages: metadataLanguages,
+		technologies: metadataTechnologies,
+		tools: metadataTools,
+		topics: metadataTopics,
 		logoPath: metadataLogoPath,
 		...remainingMetadataProps
 	} = parseProjectMetadata(repoProjectMetadata);
@@ -308,6 +312,9 @@ function transformGithubRepoNode(
 		createdAt: repoCreatedAt,
 		description: repoDescription,
 		languages: transformLanguages(repoLanguages, metadataLanguages),
+		technologies: formatSkillReferences(metadataTechnologies),
+		tools: formatSkillReferences(metadataTools),
+		topics: formatSkillReferences(metadataTopics),
 		logoUrl: transformLogoPath(repoOwnerUsername, repoName, metadataLogoPath),
 		tags: transformTags(repoTags),
 		// Use the name from the README if it exists as it's more likely to be formatted correctly

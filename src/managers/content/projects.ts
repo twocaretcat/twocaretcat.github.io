@@ -28,7 +28,6 @@ import type { Maybe } from '../../types/utils.ts';
 import {
 	assertIsDefined,
 	callIfDefined,
-	findIndexOfSubstringInArray,
 	ifDefined,
 	prettify,
 	toEnum,
@@ -44,6 +43,7 @@ import {
 	getProjectCategoryColor,
 	getSiteMetadata,
 } from '../config.ts';
+import { formatSkillReferences, getCanonicalSkillId } from './skills.ts';
 import { filterEntries } from './utils.ts';
 
 // Constants
@@ -90,18 +90,9 @@ function buildGithubRepoProject(
 		...remainingProps
 	} = githubRepoNode;
 
-	const tagline = callIfDefined(
-		capitalizeWord,
-		nodeTagline,
-	);
-	const background = callIfDefined(
-		toSentence,
-		nodeBackground,
-	);
-	const subcategory = callIfDefined(
-		capitalizeWord,
-		nodeSubcategory,
-	);
+	const tagline = callIfDefined(capitalizeWord, nodeTagline);
+	const background = callIfDefined(toSentence, nodeBackground);
+	const subcategory = callIfDefined(capitalizeWord, nodeSubcategory);
 	// For some reason, homepageUrl can be an empty string in some cases, so replace it with undefined if that's the case
 	const homepageUrl = callIfDefined(
 		assertIsUrlString,
@@ -161,10 +152,10 @@ function buildOtherProject({
 }: OtherProjectConfig): OtherProject {
 	return {
 		...remainingProps,
-		languages: languages ?? [],
-		technologies: technologies ?? [],
-		tools: tools ?? [],
-		topics: topics ?? [],
+		languages: formatSkillReferences(languages ?? []),
+		technologies: formatSkillReferences(technologies ?? []),
+		tools: formatSkillReferences(tools ?? []),
+		topics: formatSkillReferences(topics ?? []),
 		type: ProjectType.Other,
 		category: {
 			color: getProjectCategoryColor(category),
@@ -259,12 +250,11 @@ function doPinProject(
 
 	// If any of the project's languages are pinned, also pin the project
 	for (const pinnedLanguage of pinnedLanguages) {
-		const matchIndex = findIndexOfSubstringInArray(
-			project.languages,
-			pinnedLanguage,
+		const hasPinnedLanguage = project.languages.some(
+			(language) => getCanonicalSkillId(language) === pinnedLanguage,
 		);
 
-		if (matchIndex > 0) {
+		if (hasPinnedLanguage) {
 			return true;
 		}
 	}

@@ -7,6 +7,8 @@ import { ROLES_CONFIG } from '../../config/content/roles.ts';
 import {
 	type Role,
 	type RoleConfig,
+	type RoleId,
+	type RolesConfig,
 	RoleType,
 } from '../../types/content/roles.ts';
 import { ifDefined, keysOf } from '../../utils/other.ts';
@@ -15,26 +17,59 @@ import { filterEntries } from './utils.ts';
 
 // Types
 
+/**
+ * Runtime roles selected for a page, grouped by rendered role type.
+ */
 type RoleSubsets = {
+	/** Employment roles selected for the page. */
 	[RoleType.Employment]: Role[];
+	/** Education roles selected for the page. */
 	[RoleType.Education]: Role[];
+	/** Volunteering roles selected for the page. */
 	[RoleType.Volunteering]: Role[];
 };
 
 // Functions
 
 /**
- * Build a role object from a role config object.
+ * Validates that every role has a unique stable ID.
+ *
+ * @param rolesConfig - Role configuration grouped by role type.
+ * @throws Error when a role ID is invalid or duplicated.
+ */
+export function validateRolesConfig(rolesConfig: RolesConfig) {
+	const roleIds = new Set<RoleId>();
+
+	for (const [roleType, roleConfigs] of Object.entries(rolesConfig) as [
+		RoleType,
+		readonly RoleConfig[],
+	][]) {
+		for (const roleConfig of roleConfigs) {
+			if (roleIds.has(roleConfig.id)) {
+				throw new Error(
+					`Duplicate role ID '${roleConfig.id}' in '${roleType}' roles`,
+				);
+			}
+
+			roleIds.add(roleConfig.id);
+		}
+	}
+}
+
+/** Validates source role config during module initialization. */
+validateRolesConfig(ROLES_CONFIG);
+
+/**
+ * Builds a runtime role from source config.
  *
  * @remarks
+ * Role config stores dates as strings for readability while runtime role
+ * consumers use Date objects for sorting and display.
  *
- * This is necessary because the role config object uses strings for dates, while the role object uses Date objects.
- *
- * @typeParam T - The type of role.
- * @param roleConfig The role config object.
- * @returns The role object.
+ * @param roleConfig - Source role config object.
+ * @returns Runtime role with parsed dates.
  */
-function buildRole({
+export function buildRole({
 	category,
 	startDate,
 	endDate,
@@ -49,20 +84,10 @@ function buildRole({
 }
 
 /**
- * Returns the role ID for a given role. The ID is its start date in the format 'YYYY-MM-DD'.
+ * Gets the roles selected for a page.
  *
- * @param role The role.
- * @returns A string representing the role ID.
- */
-function getRoleId(role: Role) {
-	return `${role.startDate.toISOString().slice(0, 10)}`;
-}
-
-/**
- * Given a page path, returns the computed list of roles for that page.
- *
- * @param pagePath The path of the page.
- * @returns An object containing the computed list of roles for each role type.
+ * @param pagePath - Absolute page path.
+ * @returns Runtime role subsets grouped by role type.
  */
 export function getRolesForPage(pagePath: string) {
 	const pageContentConfig = getPageContentConfig(pagePath);
@@ -80,7 +105,7 @@ export function getRolesForPage(pagePath: string) {
 			pagePath,
 			ROLES_CONFIG[roleType].map(buildRole),
 			pageRolesConfig[roleType],
-			getRoleId,
+			({ id }) => id,
 		);
 	}
 

@@ -3,11 +3,11 @@
 	-----------------------------------------
 */
 
-import type { SkillsConfig } from '../../types/content/skills.ts';
+import type { SkillsByType } from '../../types/content/skills.ts';
 import { ResumeSummaryEntry } from './summary-entry.tsx';
 
 interface Props {
-	skills: SkillsConfig;
+	skills: SkillsByType;
 }
 
 export function ResumeSkillEntries({ skills }: Props) {

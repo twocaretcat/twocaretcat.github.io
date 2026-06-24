@@ -3,171 +3,113 @@
  */
 
 /**
- * An enumeration of possible skill types
+ * High-level buckets used to group skill definitions in the source catalog and
+ * rendered resume sections.
  */
 export enum SkillType {
+	/** Programming languages and language-like syntaxes. */
 	Languages = 'languages',
+	/** Frameworks, libraries, platforms, runtimes, and services. */
 	Technologies = 'technologies',
+	/** Developer tools and applications. */
 	Tools = 'tools',
+	/** Practices, concepts, and cross-cutting areas of expertise. */
 	Topics = 'topics',
 }
 
 /**
- * A union of string literals representing all language skills
+ * Stable lowercase kebab-case identifier for a canonical skill.
  */
-export type LanguageSkill =
-	| 'Bash'
-	| 'C/C++'
-	| 'CSS'
-	| 'Datalog'
-	| 'GraphQL'
-	| 'HTML'
-	| 'Java'
-	| 'JavaScript/TypeScript'
-	| 'JSX/TSX'
-	| 'Kotlin'
-	| 'Liquid Template Language'
-	| 'Lisp'
-	| 'Lua'
-	| 'MIPS Assembly'
-	| 'Nix'
-	| 'Python'
-	| 'R'
-	| 'Regular Expressions'
-	| 'SASS/SCSS'
-	| 'SQL'
-	| 'VBA';
+export type SkillId = Lowercase<string>;
 
 /**
- * A union of string literals representing all technology skills
+ * Normalized skill score, constrained to one decimal place from 0 to 1.
  */
-export type TechnologySkill =
-	| 'Astro'
-	| 'AVA'
-	| 'Bun'
-	| 'CUDA'
-	| 'Cypress'
-	| 'Deno'
-	| 'Django'
-	| 'Docker'
-	| 'Electron'
-	| 'ESLint'
-	| 'Express.js'
-	| 'FastAPI'
-	| 'Firebase'
-	| 'GatsbyJS'
-	| 'GitHub Actions'
-	| 'Gradle'
-	| 'Grafana'
-	| 'Gulp'
-	| 'Jekyll'
-	| 'Jest'
-	| 'Joi'
-	| 'JSP'
-	| 'JUnit'
-	| 'Kubernetes'
-	| 'Nano Stores'
-	| 'Next.js'
-	| 'Node.js'
-	| 'NumPy'
-	| 'OpenStack'
-	| 'Oracle DB'
-	| 'Parcel'
-	| 'PostCSS'
-	| 'PostgreSQL'
-	| 'Puppeteer'
-	| 'React'
-	| 'Selenium'
-	| 'SolidJS'
-	| 'SonarQube'
-	| 'Spring Framework'
-	| 'SQLite'
-	| 'Tailwind CSS'
-	| 'Vercel'
-	| 'Vite'
-	| 'Vitepress'
-	| 'Vue'
-	| 'Webpack'
-	| 'Zod';
+export type SkillScore =
+	| 0
+	| 0.1
+	| 0.2
+	| 0.3
+	| 0.4
+	| 0.5
+	| 0.6
+	| 0.7
+	| 0.8
+	| 0.9
+	| 1;
 
 /**
- * A union of string literals representing all tool skills
+ * Weighted one-hop relationship from one skill to another.
  */
-export type ToolSkill =
-	| 'Android Studio'
-	| 'Blender'
-	| 'ChatGPT'
-	| 'Claude Code'
-	| 'Claude Desktop'
-	| 'Continue'
-	| 'Dependabot'
-	| 'Gemini'
-	| 'GIMP'
-	| 'Git'
-	| 'GitHub Copilot'
-	| 'GitHub'
-	| 'GraphiQL'
-	| 'Inkscape'
-	| 'IntelliJ IDEA'
-	| 'Jira'
-	| 'Jupyter'
-	| 'Linux'
-	| 'Postman'
-	| 'Slack'
-	| 'Visual Studio Code'
-	| 'Visual Studio';
+export type SkillRelationship = {
+	/** Canonical ID of the related target skill. */
+	skillId: SkillId;
+	/** Directional relevance from the source skill to the target skill. */
+	weight: SkillScore;
+};
 
 /**
- * A union of string literals representing all topic skills
+ * Canonical skill definition consumed by project metadata and portfolio
+ * rendering.
  */
-export type TopicSkill =
-	| 'Accessibility'
-	| 'Agile Methodologies'
-	| 'AI-Assisted Development'
-	| 'Asynchronous Communication'
-	| 'Automated Releases'
-	| 'Automated Testing'
-	| 'CI/CD'
-	| 'Cloud Computing'
-	| 'Code Review'
-	| 'Component Design'
-	| 'Containerization'
-	| 'Cross-Functional Collaboration'
-	| 'Database Design'
-	| 'End-to-End Testing'
-	| 'Frontend Architecture'
-	| 'Integration Testing'
-	| 'Load Testing'
-	| 'OOP'
-	| 'Regression Testing'
-	| 'Requirements Analysis'
-	| 'Responsive Design'
-	| 'SOLID Principles'
-	| 'State Management'
-	| 'Static Code Analysis'
-	| 'System Design'
-	| 'TDD'
-	| 'Technical Documentation'
-	| 'Unit Testing'
-	| 'Version Control'
-	| 'Web Performance';
+export type SkillDefinition = {
+	/** Stable ID used by source metadata, page filters, and relationships. */
+	id: SkillId;
+	/** Human-readable label rendered in the UI and README output. */
+	displayName: string;
+	/** Skill bucket used for grouping and page filtering. */
+	type: SkillType;
+	/**
+	 * Relative display or curation priority from 0 to 1.
+	 *
+	 * @defaultValue 0.5
+	 */
+	priority?: SkillScore;
+	/** Alternate names that resolve to this skill during metadata canonicalization. */
+	aliases?: readonly string[];
+	/** Directional one-hop relationships to other canonical skills. */
+	related?: readonly SkillRelationship[];
+};
 
 /**
- * A type representing a skill
+ * Fully hydrated skill definition used after catalog defaults are applied.
  */
-export type Skill = LanguageSkill | TechnologySkill | ToolSkill | TopicSkill;
+export type NormalizedSkillDefinition = Omit<
+	SkillDefinition,
+	'aliases' | 'priority' | 'related'
+> & {
+	/** Normalized priority with the default value applied. */
+	priority: SkillScore;
+	/** Alias list with the empty-list default applied. */
+	aliases: readonly string[];
+	/** Relationship list with the empty-list default applied. */
+	related: readonly SkillRelationship[];
+};
 
 /**
- * Config object used to define skills
- *
- * @param languages - A list of formal languages
- * @param technologies - A list of technologies (ie. frameworks, libraries, etc.)
- * @param tools - A list of tools
- * @param topics - A list of topics
+ * Complete canonical skill catalog grouped by skill type.
  */
-export type SkillsConfig = {
-	[SkillType.Languages]: readonly LanguageSkill[];
-	[SkillType.Technologies]: readonly TechnologySkill[];
-	[SkillType.Tools]: readonly ToolSkill[];
-	[SkillType.Topics]: readonly TopicSkill[];
+export type SkillDefinitionsConfig = {
+	/** Programming languages and language-like syntaxes. */
+	[SkillType.Languages]: readonly SkillDefinition[];
+	/** Frameworks, libraries, platforms, runtimes, and services. */
+	[SkillType.Technologies]: readonly SkillDefinition[];
+	/** Developer tools and applications. */
+	[SkillType.Tools]: readonly SkillDefinition[];
+	/** Practices, concepts, and cross-cutting areas of expertise. */
+	[SkillType.Topics]: readonly SkillDefinition[];
+};
+
+/**
+ * Display-ready skill labels grouped by type for rendered page output.
+ */
+export type SkillsByType = {
+	/** Language labels selected for the page. */
+	[SkillType.Languages]: readonly string[];
+	/** Technology labels selected for the page. */
+	[SkillType.Technologies]: readonly string[];
+	/** Tool labels selected for the page. */
+	[SkillType.Tools]: readonly string[];
+	/** Topic labels selected for the page. */
+	[SkillType.Topics]: readonly string[];
 };

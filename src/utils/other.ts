@@ -274,20 +274,6 @@ export function limit<T>(array: T[], limit: number): T[] {
 }
 
 /**
- * Returns the index of the first string in the array that includes the substring. Returns -1 if no match is found.
- *
- * @param array - An array of strings to search through
- * @param substring - The substring to search for
- * @returns The index of the first match, or -1 if no match is found
- */
-export function findIndexOfSubstringInArray(
-	array: readonly string[],
-	substring: string,
-): number {
-	return array.findIndex((item) => item.includes(substring));
-}
-
-/**
  * Convert an array of objects into an object with a key-value pair
  *
  * @param array - An array of objects
