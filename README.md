@@ -29,6 +29,20 @@ It uses [React] on top of the [Gatsby] framework for static site generation. At 
 
 The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for type checking, and [Biome.js] is used for linting and formatting. [gatsby-plugin-component-to-image] is used to dynamically generate social images from React components.
 
+### Screenshots
+
+| ![Screenshot of the introduction section on this homepage](docs/screenshots/0-intro.png) |
+| --------------------------------------------------------------------------------------------- |
+| _Intro section_                                                                               |
+
+| ![Screenshot of the about section on this homepage](docs/screenshots/1-about.png) | ![Screenshot of the projects section on this homepage](docs/screenshots/2-projects.png) |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| _About section_                                                                        | _Projects section_                                                                           |
+
+| ![Screenshot of the experience section on this homepage](docs/screenshots/3-experience.png) | ![Screenshot of the contact section on this homepage](docs/screenshots/4-contact.png) |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| _Experience section_                                                                             | _Contact section_                                                                          |
+
 ## 🚀 Getting Started
 
 > [!NOTE]
@@ -48,12 +62,14 @@ The UI is styled with [Tailwind CSS] and [daisyUI]. [TypeScript] is used for typ
 3. Use `bun install` to install the app and all of its dependencies.
 4. Configure required environment variables and constants:
    1. The `GH_TOKEN` environment variable must be set to your GitHub PAT in order to fetch repository data, otherwise the build will fail. An easy way to do this is to create an `.env.development` or `.env.production` file in the project root like so:
-		```sh
-		# .env.development
-		GH_TOKEN=your_github_pat_here
-		```
+
+      ```sh
+      # .env.development
+      GH_TOKEN=your_github_pat_here
+      ```
 
    2. The site is configured to fetch repository data from the `twocaretcat` GitHub account by default. If you want to fetch data for a different user, replace the `username.github` value with your own username in [src/config/metadata/site.ts].
+
 5. Use `bun develop` to start the development server or `bun run build` to build the site for production.
 
 ## 🤖 Advanced Usage
