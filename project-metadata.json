@@ -1,19 +1,36 @@
 {
 	"$schema": "https://johng.io/schema/project-metadata.json",
 	"name": "johng.io",
-	"background": "My personal/portfolio site. Made by hand using Gatsby, React, and Tailwind CSS, this static site fetches repository data from the GitHub GraphQL API to display a selection of my public repositories on the home page. This project was a great opportunity to learn more about TypeScript, React, and the GraphQL Data Layer.",
+	"background": "Handcrafted my portfolio site with GatsbyJS and React. At build time, the site fetches public repository data from the GitHub GraphQL API, transforms it in Gatsby's GraphQL data layer, and validates it with Zod to ensure correctness. It uses custom daisyUI components styled with Tailwind CSS to present a selection of projects, contact options, and other Markdown content on the homepage. A GitHub Actions workflow builds the GitHub Pages site on a weekly basis to integrate the latest changes.",
 	"logoPath": "src/images/icon.svg",
 	"category": "Website",
 	"languages": ["GraphQL"],
 	"technologies": [
-		"Gatsby",
+		"Bun",
+		"GatsbyJS",
+		"GitHub Actions",
 		"React",
 		"Tailwind CSS",
 		"daisyUI",
 		"Zod",
 		"Motion",
-		"Botpoison",
-		"Biome"
+		"Botpoison"
+	],
+	"tools": ["Biome", "Dependabot", "Git", "GitHub", "VS Code"],
+	"topics": [
+		"CI/CD",
+		"Component Design",
+		"Frontend Architecture",
+		"OSS",
+		"Responsive Design",
+		"SEO",
+		"SSG",
+		"Static Code Analysis",
+		"Technical Documentation",
+		"UI/UX",
+		"Version Control",
+		"Web Design",
+		"Web Performance"
 	],
 	"schema": {
 		"type": "Web",
