@@ -8,12 +8,8 @@
     <img src="https://johng.io/badges/category/Website.svg" alt="Project category" title="Project category">
     <img src="https://img.shields.io/github/languages/top/twocaretcat/twocaretcat.github.io.svg" alt="Language" title="Language">
     <img src="https://img.shields.io/github/repo-size/twocaretcat/twocaretcat.github.io.svg" alt="Repository size" title="Repository size">
-    <a href="LICENSE">
-      <img src="https://img.shields.io/github/license/twocaretcat/twocaretcat.github.io.svg" alt="Project license" title="Project license"/>
-    </a>
-    <a href="https://johng.io" title="Project URL">
-			<img src="https://img.shields.io/website?url=https%3A%2F%2Fjohng.io&up_message=johng.io%20%E2%86%97" alt="Project URL" title="Project URL">
-		</a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/twocaretcat/twocaretcat.github.io.svg" alt="Project license" title="Project license"/></a>
+    <a href="https://johng.io" title="Project URL"><img src="https://img.shields.io/website?url=https%3A%2F%2Fjohng.io&up_message=johng.io%20%E2%86%97" alt="Project URL" title="Project URL"></a>
   </p>
   <p class="projectDesc">
     My personal/portfolio site. Made by hand using Gatsby, React, Tailwind CSS, and daisyUI.
