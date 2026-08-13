@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import type { HeadProps, PageProps } from 'gatsby';
 import { useInView } from 'motion/react';
-import { lazy, Suspense, useCallback, useRef } from 'react';
+import { lazy, Suspense, useCallback, useMemo, useRef } from 'react';
 import { HeroHeader } from '../../components/layout/hero-header.tsx';
 import { PageLayout } from '../../components/layout/page-layout.tsx';
 import { Section } from '../../components/layout/section.tsx';
@@ -42,13 +42,27 @@ const ContactForm = lazy(() =>
 	})),
 );
 
+function shouldInitiallyExpandTitle() {
+	return (
+		typeof window === 'undefined' ||
+		(window.location.hash === '' && window.scrollY === 0)
+	);
+}
+
 export default function IndexPageTemplate({
 	pageContext: { projects, authorBio },
 }: PageProps<null, PageContext>) {
 	const authorBioHtml = `<p>${authorBio.replaceAll('\n', '<br/>')}</p>`;
 
-	const inViewTriggerRef = useRef(null);
-	const expandTitle = useInView(inViewTriggerRef, USE_IN_VIEW_OPTIONS);
+	const inViewTriggerRef = useRef<HTMLSpanElement>(null);
+	const inViewOptions = useMemo(
+		() => ({
+			...USE_IN_VIEW_OPTIONS,
+			initial: shouldInitiallyExpandTitle(),
+		}),
+		[],
+	);
+	const expandTitle = useInView(inViewTriggerRef, inViewOptions);
 	const sections = [
 		{
 			title: 'About',
@@ -99,7 +113,11 @@ export default function IndexPageTemplate({
 	return (
 		<PageLayout expandTitle={expandTitle} sections={sections}>
 			<Section className="text-center min-h-svh">
-				<span ref={inViewTriggerRef} />
+				<span
+					ref={inViewTriggerRef}
+					className="block w-px h-px self-center"
+					aria-hidden
+				/>
 				<HeroHeader expandTitle={expandTitle} />
 				<div className="flex fixed inset-x-0 bottom-0 flex-row justify-center mb-4">
 					<GhostButtonLink
