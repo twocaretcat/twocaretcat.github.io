@@ -3,9 +3,10 @@
 	----------------------------------------------
 */
 
-import { motion, useInView } from 'motion/react';
+import { motion } from 'motion/react';
 import { useEffect } from 'react';
-import { USE_IN_VIEW_OPTIONS } from '../config/constants.ts';
+import { INTERSECTION_OBSERVER_OPTIONS } from '../config/constants.ts';
+import { useElementInView } from '../hooks/use-element-in-view.ts';
 import type { PageSection } from '../types/components.ts';
 import { toKebabCase } from '../utils/strings.ts';
 import { Tab } from './tab.tsx';
@@ -19,7 +20,7 @@ export function Tabs({ sections, hideIndicator = false }: Props) {
 	// Map is used here because we need to call the same number of hooks every time. Otherwise, React will complain
 	const sectionInViewHooks = sections.map((section) =>
 		// biome-ignore lint/correctness/useHookAtTopLevel: We need a loop to create the right number of hooks. Array order should be consistent
-		useInView(section.ref, USE_IN_VIEW_OPTIONS),
+		useElementInView(section.ref, INTERSECTION_OBSERVER_OPTIONS),
 	);
 	const currentSectionIndex = hideIndicator
 		? -1

@@ -8,8 +8,7 @@ import {
 	faArrowUpRightFromSquare,
 } from '@fortawesome/free-solid-svg-icons';
 import type { HeadProps, PageProps } from 'gatsby';
-import { useInView } from 'motion/react';
-import { lazy, Suspense, useCallback, useMemo, useRef } from 'react';
+import { lazy, Suspense, useCallback, useRef } from 'react';
 import { HeroHeader } from '../../components/layout/hero-header.tsx';
 import { PageLayout } from '../../components/layout/page-layout.tsx';
 import { Section } from '../../components/layout/section.tsx';
@@ -19,12 +18,16 @@ import { ProjectCardGallery } from '../../components/project-card-gallery.tsx';
 import { PageHead } from '../../components/seo/page-head.tsx';
 import { Article } from '../../components/text/article.tsx';
 import { Timeline } from '../../components/timeline.tsx';
-import { INDEX_PATH, USE_IN_VIEW_OPTIONS } from '../../config/constants.ts';
+import {
+	INDEX_PATH,
+	INTERSECTION_OBSERVER_OPTIONS,
+} from '../../config/constants.ts';
 import { getSiteMetadata } from '../../managers/config.ts';
 import { getRolesForPage } from '../../managers/content/roles.ts';
 import type { ButtonElementRenderFn } from '../../types/components.ts';
 import type { SocialImagesMetadataProp } from '../../types/other.ts';
 import type { IndexPageContext } from '../../types/page-context.ts';
+import { useElementInView } from '../../hooks/use-element-in-view.ts';
 import { toKebabCase } from '../../utils/strings.ts';
 
 // Types
@@ -55,14 +58,10 @@ export default function IndexPageTemplate({
 	const authorBioHtml = `<p>${authorBio.replaceAll('\n', '<br/>')}</p>`;
 
 	const inViewTriggerRef = useRef<HTMLSpanElement>(null);
-	const inViewOptions = useMemo(
-		() => ({
-			...USE_IN_VIEW_OPTIONS,
-			initial: shouldInitiallyExpandTitle(),
-		}),
-		[],
-	);
-	const expandTitle = useInView(inViewTriggerRef, inViewOptions);
+	const expandTitle = useElementInView(inViewTriggerRef, {
+		...INTERSECTION_OBSERVER_OPTIONS,
+		initial: shouldInitiallyExpandTitle,
+	});
 	const sections = [
 		{
 			title: 'About',
