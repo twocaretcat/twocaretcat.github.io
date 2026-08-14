@@ -66,10 +66,9 @@ export const BOTPOISON_PUBLIC_KEY =
 export const CONTACT_FORM_POST_URL: UrlString =
 	'https://submit-form.com/re6Xbd2gs' as const;
 
-// Options for the useInView hook. Margin is used to offset the height of the navbar
-export const USE_IN_VIEW_OPTIONS = {
-	amount: 0,
-	margin: '-68px',
+// Options for intersection observers. Margin is used to offset the height of the navbar
+export const INTERSECTION_OBSERVER_OPTIONS = {
+	rootMargin: '-68px',
 } as const;
 
 // Props for enabling a fade-in animation for a Motion component
