@@ -112,7 +112,7 @@ export default function ResumePageTemplate({
 					<ResumeSkillEntries skills={SKILLS} />
 				</Section>
 			)}
-			{projects && (
+			{projects.length > 0 && (
 				<Section {...sectionProps.projects} {...COMMON_SECTION_PROPS}>
 					<ResumeProjectEntries projects={projects} />
 				</Section>
