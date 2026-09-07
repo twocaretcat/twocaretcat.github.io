@@ -110,7 +110,6 @@ export type ToolSkill =
 	| 'Claude Code'
 	| 'Claude Desktop'
 	| 'Codex Desktop'
-	| 'Codex Desktop'
 	| 'Continue'
 	| 'Dependabot'
 	| 'ESLint'
