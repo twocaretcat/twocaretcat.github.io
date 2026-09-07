@@ -120,7 +120,7 @@ export const ROLES_CONFIG: RolesConfig = {
 			title: 'High School Diploma',
 			company: 'Eckville Junior/Senior High School',
 			companyUrl: 'https://ehs.wolfcreek.ab.ca/',
-			location: 'Edmonton, AB',
+			location: 'Eckville, AB',
 			startDate: '2010-09-01',
 			endDate: '2016-06-01',
 			bullets: ['Graduated with an overall average of 85%.'],
